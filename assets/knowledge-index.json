@@ -1,8 +1,13 @@
 {
   "skills": [
     {
-      "filename": "skill-linux.md",
-      "title": "Linux",
+      "filename": "skill-courses.md",
+      "title": "Courses",
+      "category": "skill"
+    },
+    {
+      "filename": "skill-python.md",
+      "title": "Python",
       "category": "skill"
     },
     {
@@ -11,8 +16,18 @@
       "category": "skill"
     },
     {
+      "filename": "skill-linux.md",
+      "title": "Linux",
+      "category": "skill"
+    },
+    {
       "filename": "skill-algorithms.md",
       "title": "Algorithms",
+      "category": "skill"
+    },
+    {
+      "filename": "skill-reading.md",
+      "title": "Reading",
       "category": "skill"
     },
     {
@@ -28,21 +43,6 @@
     {
       "filename": "skill-docker.md",
       "title": "Docker",
-      "category": "skill"
-    },
-    {
-      "filename": "skill-courses.md",
-      "title": "Courses",
-      "category": "skill"
-    },
-    {
-      "filename": "skill-python.md",
-      "title": "Python",
-      "category": "skill"
-    },
-    {
-      "filename": "skill-reading.md",
-      "title": "Reading",
       "category": "skill"
     }
   ],
