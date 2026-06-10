@@ -12,12 +12,11 @@ lastUpdated: 2026-06-11
 > 本模块为AI助手提供常见算法和数据结构的核心知识、模板代码和复杂度分析。
 >
 > *自动生成时间: 2026-06-11*
-
 ## 一、算法基础
 
 ### 1.1 复杂度分析
 
-**时间复杂度 Big-O 常见阶数:**
+**时间复杂度 Big-O 常见阶数**:
 
 | 复杂度     | 名称       | 示例                  | 可处理规模 |
 |------------|------------|-----------------------|------------|
@@ -30,7 +29,7 @@ lastUpdated: 2026-06-11
 | O(2^n)     | 指数阶     | 递归枚举子集          | 20         |
 | O(n!)      | 阶乘阶     | 全排列                | 10         |
 
-**主定理 (Master Theorem):**
+**主定理 (Master Theorem)**:
 对于 T(n) = a*T(n/b) + f(n):
 
 1. 如果 f(n) = O(n^(log_b a - ε)), 则 T(n) = O(n^(log_b a))
@@ -46,7 +45,6 @@ lastUpdated: 2026-06-11
 - **回溯 (Backtracking)**: 尝试所有可能,失败则回退
 - **二分查找 (Binary Search)**: 有序数据的快速定位
 - **滑动窗口 (Sliding Window)**: 连续子数组/子串问题
-
 ## 二、数组
 
 ### 2.1 数组特点
@@ -56,7 +54,7 @@ lastUpdated: 2026-06-11
 
 ### 2.2 常见模板
 
-**双指针 - 移除元素:**
+**双指针 - 移除元素**:
 ```python
 def remove_element(nums, val):
     slow = 0
@@ -66,7 +64,8 @@ def remove_element(nums, val):
             slow += 1
     return slow
 ```
-**滑动窗口 - 最长无重复子串:**
+
+**滑动窗口 - 最长无重复子串**:
 def length_of_longest_substring(s):
     char_map = {}
     left = 0
@@ -78,7 +77,7 @@ def length_of_longest_substring(s):
         max_len = max(max_len, right - left + 1)
     return max_len
 
-**前缀和:**
+**前缀和**:
 class PrefixSum:
     def __init__(self, nums):
         self.prefix = [0] * (len(nums) + 1)
@@ -95,7 +94,6 @@ class PrefixSum:
 - **最大子数组和**: Kadane算法 O(n)
 - **合并区间**: 排序+遍历 O(n log n)
 - **旋转数组**: 多次反转 O(n)
-
 ## 三、链表
 
 ### 3.1 链表类型
@@ -113,7 +111,7 @@ class ListNode:
 
 ### 3.3 常见操作模板
 
-**反转链表:**
+**反转链表**:
 def reverse_list(head):
     prev = None
     curr = head
@@ -124,20 +122,20 @@ def reverse_list(head):
         curr = nxt
     return prev
 
-**找链表中点 (快慢指针):**
+**找链表中点 (快慢指针)**:
 def find_middle(head):
     slow = fast = head
     while fast and fast.next:
         slow = slow.next
         fast = fast.next.next
 
-**判断环形链表:**
+**判断环形链表**:
 def has_cycle(head):
         if slow == fast:
             return True
     return False
 
-**合并两个有序链表:**
+**合并两个有序链表**:
 def merge_two_lists(l1, l2):
     dummy = ListNode()
     tail = dummy
@@ -159,7 +157,6 @@ def merge_two_lists(l1, l2):
 - **链表相交**: 双指针换路
 - **删除倒数第N个节点**: 快慢指针
 - **LRU缓存**: 哈希表+双向链表
-
 ## 四、树
 
 ### 4.1 树的基本概念
@@ -178,15 +175,13 @@ class TreeNode:
 
 ### 4.3 遍历方式
 
-**前序遍历 (根-左-右):**
+**前序遍历 (根-左-右)**:
 def preorder(root):
     if not root:
         return []
     return [root.val] + preorder(root.left) + preorder(root.right)
 
 # 迭代版
-
-
 def preorder_iter(root):
     if not root: return []
     stack, res = [root], []
@@ -197,15 +192,15 @@ def preorder_iter(root):
         if node.left: stack.append(node.left)
     return res
 
-**中序遍历 (左-根-右):**
+**中序遍历 (左-根-右)**:
 def inorder(root):
     return inorder(root.left) + [root.val] + inorder(root.right)
 
-**后序遍历 (左-右-根):**
+**后序遍历 (左-右-根)**:
 def postorder(root):
     return postorder(root.left) + postorder(root.right) + [root.val]
 
-**层序遍历 (BFS):**
+**层序遍历 (BFS)**:
 from collections import deque
 
 def level_order(root):
@@ -221,13 +216,13 @@ def level_order(root):
 
 ### 4.4 BST 操作
 
-**验证BST:**
+**验证BST**:
 def is_valid_bst(root, min_val=float('-inf'), max_val=float('inf')):
     if not (min_val < root.val < max_val):
     return (is_valid_bst(root.left, min_val, root.val) and
             is_valid_bst(root.right, root.val, max_val))
 
-**插入节点:**
+**插入节点**:
 def insert_bst(root, val):
         return TreeNode(val)
     if val < root.val:
@@ -244,7 +239,6 @@ def insert_bst(root, val):
 - **从前序与中序遍历构造二叉树**
 - **二叉搜索树的第k小元素**: 中序遍历
 - **前缀树 (Trie)**: 字符串检索
-
 ## 五、排序
 
 ### 5.1 排序算法对比
@@ -324,12 +318,11 @@ def heapify(arr, n, i):
     if largest != i:
         arr[i], arr[largest] = arr[largest], arr[i]
         heapify(arr, n, largest)
-
 ## 六、搜索
 
 ### 6.1 二分查找
 
-**标准模板:**
+**标准模板**:
 def binary_search(nums, target):
     left, right = 0, len(nums) - 1
     while left <= right:
@@ -341,7 +334,7 @@ def binary_search(nums, target):
             right = mid - 1
     return -1
 
-**查找左边界:**
+**查找左边界**:
 def left_bound(nums, target):
     left, right = 0, len(nums)
     while left < right:
@@ -350,13 +343,12 @@ def left_bound(nums, target):
             right = mid
     return left if left < len(nums) and nums[left] == target else -1
 
-**查找右边界:**
+**查找右边界**:
 def right_bound(nums, target):
         if nums[mid] <= target:
     return right - 1 if right > 0 and nums[right-1] == target else -1
 
 ### 6.2 BFS (广度优先搜索)
-
 def bfs(graph, start):
     visited = {start}
     queue = deque([start])
@@ -381,7 +373,6 @@ def dfs_iterative(graph, start):
             continue
         visited.add(node)
                 stack.append(neighbor)
-
 ## 七、动态规划
 
 ### 7.1 DP 三要素
@@ -393,11 +384,7 @@ def dfs_iterative(graph, start):
 ### 7.2 一维DP - 爬楼梯
 
 # dp[i] = 爬到第i阶的方法数
-
-
 # dp[i] = dp[i-1] + dp[i-2]
-
-
 def climb_stairs(n):
     if n <= 2:
         return n
@@ -410,11 +397,7 @@ def climb_stairs(n):
 ### 7.3 一维DP - 打家劫舍
 
 # dp[i] = 考虑前i间房能偷的最大金额
-
-
 # dp[i] = max(dp[i-1], dp[i-2] + nums[i])
-
-
 def rob(nums):
     if not nums:
         return 0
@@ -431,14 +414,8 @@ def rob(nums):
 ### 7.4 二维DP - 最长公共子序列
 
 # dp[i][j] = text1前i字符与text2前j字符的LCS长度
-
-
 # if text1[i-1]==text2[j-1]: dp[i][j] = dp[i-1][j-1] + 1
-
-
 # else: dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-
-
 def longest_common_subsequence(text1, text2):
     m, n = len(text1), len(text2)
     dp = [[0]*(n+1) for _ in range(m+1)]
@@ -451,14 +428,9 @@ def longest_common_subsequence(text1, text2):
 
 ### 7.5 背包问题
 
-**0-1背包:**
-
+**0-1背包**:
 # dp[i][w] = 前i个物品,容量w时的最大价值
-
-
 # dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i]] + val[i])
-
-
 def knapsack_01(weights, values, capacity):
     n = len(weights)
     dp = [0] * (capacity + 1)
@@ -479,12 +451,11 @@ def unbounded_knapsack(weights, values, capacity):
 - **单词拆分**: 判断能否用字典单词组成字符串
 - **最大正方形**: 全1正方形的最大边长
 - **矩阵中的最小路径和**
-
 ## 八、图
 
 ### 8.1 图的表示
 
-**邻接表:**
+**邻接表**:
 graph = {
     'A': ['B', 'C'],
     'B': ['A', 'D', 'E'],
@@ -494,7 +465,7 @@ graph = {
     'F': ['C', 'E']
 }
 
-**邻接矩阵:**
+**邻接矩阵**:
     A B C D E F
   +-------------
 A | 0 1 1 0 0 0
@@ -523,7 +494,6 @@ def dijkstra(graph, start):
     return dist
 
 ### 8.3 拓扑排序 (Kahn算法)
-
 def topological_sort(graph, in_degree):
     n = len(graph)
     queue = deque([node for node in range(n) if in_degree[node] == 0])
@@ -570,18 +540,17 @@ def kruskal(n, edges):
             if len(mst_edges) == n - 1:
                 break
     return total_weight, mst_edges
-
 ## 九、字符串
 
 ### 9.1 常见字符串算法
 
-**判断回文:**
+**判断回文**:
 def is_palindrome(s, left, right):
         if s[left] != s[right]:
         left += 1
         right -= 1
 
-**最长回文子串 (中心扩展):**
+**最长回文子串 (中心扩展)**:
 def longest_palindrome(s):
     if not s: return ""
     start = end = 0
@@ -600,7 +569,7 @@ def expand_around_center(s, left, right):
         right += 1
     return left + 1, right - 1
 
-**字符串匹配 (KMP):**
+**字符串匹配 (KMP)**:
 def kmp_search(text, pattern):
     lps = build_lps(pattern)
     while i < len(text):
@@ -630,7 +599,6 @@ def build_lps(pattern):
 - **字符串相乘**: 模拟乘法
 - **括号生成**: 回溯
 - **字母异位词分组**: 哈希表+排序key
-
 ## 十、复杂度分析速查
 
 ### 10.1 数据结构操作复杂度

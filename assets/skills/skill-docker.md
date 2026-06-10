@@ -6,13 +6,9 @@ crawled: 2026-06-11
 pages: 3
 
 # Docker 知识库
-
-
 > 爬取来源: https://docs.docker.com/get-started/ | 3 页内容
 
 ## Get started | Docker Docs
-
-
 来源: https://docs.docker.com/get-started/
 
 - Guides
@@ -49,10 +45,7 @@ Gain a better understanding of foundational Docker concepts.
 ### Docker workshop
 
 Get guided through a 45-minute workshop to learn about Docker.
-
 ## Docker guides | Docker Docs
-
-
 来源: https://docs.docker.com/guides/
 
 - Get started
@@ -85,12 +78,8 @@ This guide details how to containerize ROS 2 applications using Docker.
 ## All guides
 
 Filtered results: showingout ofguides.
-
 ## Manuals | Docker Docs
-
-
 来源: https://docs.docker.com/manuals/
-
 # Manuals
 
 This section contains user guides on how to install, set up, configure, and use

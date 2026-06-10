@@ -6,13 +6,9 @@ crawled: 2026-06-11
 pages: 15
 
 # Linux 知识库
-
-
 > 爬取来源: https://linuxcommand.org/ | 15 页内容
 
 ## LinuxCommand.org: Learn The Linux Command Line. Write Shell Scripts.
-
-
 来源: https://linuxcommand.org/
 
 - Home
@@ -32,19 +28,11 @@ Like the site? You'll love the book!The Linux Command Lineby William Shotts
 © 2000-2026,William E. Shotts, Jr.Verbatim copying and distribution of this entire article is
 permitted in any medium, provided this copyright notice is preserved.
 Linux® is a registered trademark of Linus Torvalds.
-
 ## LinuxCommand.org: Learn The Linux Command Line. Write Shell Scripts.
-
-
 来源: https://linuxcommand.org/index.php
-
 # Now what?
-
 ## LinuxCommand.org: Learning the shell.
-
-
 来源: https://linuxcommand.org/lc3_learning_the_shell.php
-
 # Why Bother?
 
 Why do you need to learn the command line anyway? Well, let me tell you a
@@ -84,12 +72,8 @@ to Computer Literacy 101. Now let's get to work.
 - Expansion
 - Permissions
 - Job Control
-
 ## LinuxCommand.org: Writing shell scripts.
-
-
 来源: https://linuxcommand.org/lc3_writing_shell_scripts.php
-
 # Here is Where the Fun Begins
 
 With the thousands of commands available to the command line user, how can
@@ -115,7 +99,6 @@ Scripts unlock the power of our Linux machine. So let's have some fun!
 
 - Writing Our First
 		Script and Getting It to Work
-
 - Editing the Scripts We Already Have
 - Here Scripts
 - Variables
@@ -124,33 +107,24 @@ Scripts unlock the power of our Linux machine. So let's have some fun!
 - Some Real Work
 - Flow Control - Part
 		1
-
 - Stay Out of Trouble
 - Keyboard Input and
 		Arithmetic
 		2
-
 - Positional
 		Parameters
-
 - Flow Control - Part 3
 - Errors and Signals and Traps (Oh My!) - Part 1
 - Errors and Signals and Traps (Oh My!) - Part 2
-
 ## LinuxCommand.org: Resources
-
-
 来源: https://linuxcommand.org/lc3_resources.php
-
 ## Manual Pages
 
 Here is documentation for many of the commands mentioned on
 LinuxCommand.org, as well as others. These include:
-
 - Bash Builtins- commands built into the shell itself
-- The GNU Coreutils- the essential utilities included with most Linux
+- The GNU Coreutils- the essential utilities included with most Linux 
   distributions. These are divided into three groups:File UtilitiesText UtilitiesShell Utilities
-
 - File Utilities
 - Text Utilities
 - Shell Utilities
@@ -158,23 +132,20 @@ LinuxCommand.org, as well as others. These include:
 
 ## Shell Scripts
 
-- new_scriptA bash shell script template generator. Use this script to
-	help write your own shell scripts. Generated templates include
-	useful shell functions, error and signal handling, and
+- new_scriptA bash shell script template generator. Use this script to 
+	help write your own shell scripts. Generated templates include 
+	useful shell functions, error and signal handling, and 
 	command-line option and argument parsing.
 new_script
-A bash shell script template generator. Use this script to
-
-- my_cloudImplements a primitive cloud storage system using any
+A bash shell script template generator. Use this script to 
+- my_cloudImplements a primitive cloud storage system using any 
 	available remote host running an SSH server.
 my_cloud
-Implements a primitive cloud storage system using any
-
+Implements a primitive cloud storage system using any 
 - photo2mailRe-sizes large image files (photos) for use as attachments to email
 	messages, blog postings, etc.
 photo2mail
 Re-sizes large image files (photos) for use as attachments to email
-
 - program_listCreates an annotated list of programs in a directory. Useful for
 	exploring your system.
 program_list
@@ -186,20 +157,16 @@ Creates an annotated list of programs in a directory. Useful for
 workstation that uses only text-based programs.
 Building An All-text Linux Workstation
 A 14-part series describing the creation of a general purpose
-
 - Getting Ready For Ubuntu 10.04This series goes through the process of upgrading a Linux system
 from one version of Linux to another by doing a fresh
 install. Covers backup and installation techniques.
 Getting Ready For Ubuntu 10.04
 This series goes through the process of upgrading a Linux system
-
 - New Features In Bash 4.xCovers features added to the fourth major release of bash.
 New Features In Bash 4.x
 Covers features added to the fourth major release of bash.
 
 ## Other Sites You Might Enjoy
-
-
 ### Bash And Scripting
 
 - The Bash Reference ManualPerhaps in response to the usability issues found in the bash man page,
@@ -210,7 +177,6 @@ Covers features added to the fourth major release of bash.
     bash man page.
 The Bash Reference Manual
 Perhaps in response to the usability issues found in the bash man page,
-
 - Greg's WikiThe bash man page and the Bash Reference Manual both extensively
     document the features found in bash.  However, when we want a description
     of bash behavior, different resources are needed.  The best by far is
@@ -223,7 +189,6 @@ Perhaps in response to the usability issues found in the bash man page,
     tutorials for bash users.  There are also several fun to readrants.
 Greg's Wiki
 The bash man page and the Bash Reference Manual both extensively
-
 - Bash Hacker's WikiLike Greg's Wiki, the Bash Hackers Wiki provides many different articles
     relating to bash, its features, and its behavior.  Included are some useful
     tutorials on various programming techniques and issues with scripting with
@@ -231,25 +196,21 @@ The bash man page and the Bash Reference Manual both extensively
     useful information.
 Bash Hacker's Wiki
 Like Greg's Wiki, the Bash Hackers Wiki provides many different articles
-
 - Chet Ramey's Bash PageChet Ramey is the current maintainer of bash and he has his own page.
     On it, you can find version information, latest news, and other things.
     The most useful document on the Bash Page is its version of theBash FAQ.  TheNEWSfile contains a
     concise list of features that have been added to each version of bash.
 Chet Ramey's Bash Page
 Chet Ramey is the current maintainer of bash and he has his own page.
-
 - Advanced Bash Scripting HOWTOThe Advanced Bash Scripting HOWTO is a detailed look at bash shell
     programming. A thoughtful treatment with lots of examples and exercises. A
     good companion piece for the LinuxCommand.org tutorials.
 Advanced Bash Scripting HOWTO
 The Advanced Bash Scripting HOWTO is a detailed look at bash shell
-
 - The Bash Prompt HOWTOThe Bash Prompt HOWTO is a surprisingly interesting discussion of all
     the things you can make the prompt do.
 The Bash Prompt HOWTO
 The Bash Prompt HOWTO is a surprisingly interesting discussion of all
-
 - Linux From ScratchThe Linux From Scratch tutorial will step you through the process of
     building a complete Linux system from source code.
 Linux From Scratch
@@ -262,7 +223,6 @@ The Linux From Scratch tutorial will step you through the process of
     is organized the way it is.
 The Linux Filesystem Hierarchy Standard
 The Linux Filesystem Hierarchy Standard describes the standard layout of
-
 - Linux Standard BaseLinux Standard Base is a project devoted to developing a standard for
     Linux distributions.
 Linux Standard Base
@@ -275,29 +235,21 @@ Linux Standard Base is a project devoted to developing a standard for
     programs.
 Free Software Foundation
 The Free Software Foundation (FSF) is dedicated to promoting computer
-
 - Electronic Frontier FoundationEFF is working to protect our fundamental rights regardless of
     technology, to educate the press, policymakers and the general public about
     civil liberties issues related to technology, and to act as a defender of
     those liberties.
 Electronic Frontier Foundation
 EFF is working to protect our fundamental rights regardless of
-
 - Software Freedom Law CenterSFLC provides legal representation and other law-related services to
     protect and advance Free and Open Source Software.  Founded in 2005, the
     Center now represents many of the most important and well-established free
     software and open source projects.
 Software Freedom Law Center
 SFLC provides legal representation and other law-related services to
-
 ## Linux Command Line Books by William Shotts
-
-
 来源: https://linuxcommand.org/tlcl.php
-
 # The Linux Command Line
-
-
 ## by William Shotts
 
 Seventh Internet Edition
@@ -306,15 +258,12 @@ the same material as LinuxCommand.org but in much greater detail.  In
 addition to the basics of command line use and shell scripting,The
 Linux Command Lineincludes chapters on many common programs used on
 the command line, as well as more advanced topics.
-
 - Released under a BY-NC-ND Creative Commonslicense,
     this book is available for free download in PDF format.Download ithere.
     Read the release noteshere.
 Released under a BY-NC-ND Creative Commonslicense,
-
 - Download example scripts from the bookhere.
 Download example scripts from the bookhere.
-
 - The book is available in printed form, published byNo Starch Press.Based on the Seventh Internet Edition, the third print edition may be purchased wherever fine books are sold.
     No Starch Press also offers electronic formats for popular e-readers.In addition to English, the printed book is also
     available in the following languages:Korean:available fromBJ PUBLICSerbian:available fromMikro KnjigaChinese (Traditional):available fromGOTOPChinese (Simplified):available fromPT PressRussian:available fromPiterPolish:available fromHelion
@@ -322,7 +271,6 @@ The book is available in printed form, published byNo Starch Press.Based on the 
     No Starch Press also offers electronic formats for popular e-readers.
 In addition to English, the printed book is also
     available in the following languages:
-
 - Korean:available fromBJ PUBLIC
 - Serbian:available fromMikro Knjiga
 - Chinese (Traditional):available fromGOTOP
@@ -331,14 +279,11 @@ In addition to English, the printed book is also
 - Polish:available fromHelion
 - Read reviews atNo Starch PressandAmazon.
 Read reviews atNo Starch PressandAmazon.
-
 - FindThe Linux Command Lineatyour local library.
 FindThe Linux Command Lineatyour local library.
-
 - Want to translate the Creative Commons version ofThe Linux Command Line?Please see theCommunity Translation Policyfor details.The following community translations are now available:ArabicTranslation by Abd Allatif EymshSpanishTranslation by Adriano SánchezPortuguese (in progress).Translation byMatheus SalesItalian (in progress).Translation byFrancesco CargiuliRomanian (in progress).Translation byPaval VladFarsiTranslation byAmirhosain ShahsavariDutch (in progress).Translation byTom Van LooyFrench (in progress).Translation byVincent de Paul BAKPATINAKurdish (in progress).Translation byAga Ismael AbdallaTurkishTranslation byRecep ŞenelSwedish (HTML,PDF).Translation byJosef Andersson
 Want to translate the Creative Commons version ofThe Linux Command Line?Please see theCommunity Translation Policyfor details.
 The following community translations are now available:
-
 - ArabicTranslation by Abd Allatif Eymsh
 - SpanishTranslation by Adriano Sánchez
 - Portuguese (in progress).Translation byMatheus Sales
@@ -352,8 +297,6 @@ The following community translations are now available:
 - Swedish (HTML,PDF).Translation byJosef Andersson
 
 # Adventures with the Linux Command Line
-
-
 ## by William Shotts
 
 First Internet Edition
@@ -361,15 +304,10 @@ In this 250+ page sequel/suplement toThe Linux Command Linewe'll
 look at even more cool tools and fun command line topics. With 14 action-packed
 chapters, it's perfect for makers, students, and anyone wanting to learn
 additional Linux history, techniques, and skills.
-
 - Released under a Creative Commonslicense,
 Released under a Creative Commonslicense,
-
 ## LinuxCommand.org: Adventures
-
-
 来源: https://linuxcommand.org/lc3_adventures.php
-
 # But Wait... There's More!
 
 This collection is a supplement to my book,The Linux
@@ -394,7 +332,6 @@ The adventures are alsoavailable in book form.
 ### Midnight Commander
 
 We will look at Midnight Commander, a character-based directory
-
 - Terminal MultiplexersWhat if we could run multiple terminal sessions inside a single
         terminal window? Or how about if we could detach a running session and
         return to it later, on a different machine? Sound impossible? It's not.
@@ -402,21 +339,18 @@ We will look at Midnight Commander, a character-based directory
 ### Terminal Multiplexers
 
 What if we could run multiple terminal sessions inside a single
-
 - Less TypingFingers getting tired? Wrists starting to ache? Time to learn how do
         more with less typing.
 
 ### Less Typing
 
 Fingers getting tired? Wrists starting to ache? Time to learn how do
-
 - More RedirectionWe'll look at I/O redirection again in a little more depth and learn a
         few tricks along the way.
 
 ### More Redirection
 
 We'll look at I/O redirection again in a little more depth and learn a
-
 - tputWhile our command line environment is certainly powerful, it can be
         lacking when it comes to visual appeal. It doesn't have to be that way.
         Learn to take control of terminal output and add some visual spice.
@@ -424,7 +358,6 @@ We'll look at I/O redirection again in a little more depth and learn a
 ### tput
 
 While our command line environment is certainly powerful, it can be
-
 - dialogWe're going to look atdialog, a program that displays
         various kinds ofdialog boxesthat we can incorporate into our
         shell scripts to give them a much friendlier face.
@@ -433,7 +366,6 @@ While our command line environment is certainly powerful, it can be
 
 We're going to look atdialog, a program that displays
 dialog
-
 - AWKOne of the great things we can do in the shell is embed other
         programming languages within the body of our scripts. In this
         adventure, we are going to look at one such program,awk,
@@ -443,7 +375,6 @@ dialog
 
 One of the great things we can do in the shell is embed other
 awk
-
 - Other ShellsWhile we have spent a great deal of time learning the bash shell,
         it's not the only game in town. Unix has had several popular shells and
         almost all are available for Linux, too.
@@ -451,7 +382,6 @@ awk
 ### Other Shells
 
 While we have spent a great deal of time learning the bash shell,
-
 - Power TerminalsIn this adventure, we are going to look at a few of the different
         terminal programs and the many interesting things we can do with
         them.
@@ -459,7 +389,6 @@ While we have spent a great deal of time learning the bash shell,
 ### Power Terminals
 
 In this adventure, we are going to look at a few of the different
-
 - Vim, with VigorVim is a very powerful program. In fact, it's safe to say that vim
         can do anything. It's just a question of figuring out how. In this
         adventure, we will acquire an intermediate level of skill in this
@@ -468,7 +397,6 @@ In this adventure, we are going to look at a few of the different
 ### Vim, with Vigor
 
 Vim is a very powerful program. In fact, it's safe to say that vim
-
 - sourceWe looked atsourcebriefly when we worked with the.profileand.bashrcfiles used to establish
         the shell environment.In this adventure, we will look atsourceagain and discover the ways it can make our scripts
         more powerful and easier to maintain.
@@ -481,14 +409,12 @@ source
 .profile
 .bashrc
 In this adventure, we will look atsourceagain and discover the ways it can make our scripts
-
 - Coding Standards Part 1Most programming organizations have formal standards for coding
         practice and style. We will look at some and create one of our own.
 
 ### Coding Standards Part 1
 
 Most programming organizations have formal standards for coding
-
 - Coding Standards Part 2There's one problem with having a coding standard. Once you have it,
         you have to follow it. In this adventure we will learn aboutnew_script, a shell script template generator that
         performs much of the tedious mechanical work.
@@ -496,7 +422,6 @@ Most programming organizations have formal standards for coding
 ### Coding Standards Part 2
 
 There's one problem with having a coding standard. Once you have it,
-
 - SQLStructured Query Language (SQL) is thelingua francaof the
         database world. It's also a useful and important skill. In this
         adventure, we will look at its major features and techniques, as well
@@ -506,12 +431,8 @@ There's one problem with having a coding standard. Once you have it,
 ### SQL
 
 Structured Query Language (SQL) is thelingua francaof the
-
 ## Learning the shell - Lesson 1: What is the shell?
-
-
 来源: https://linuxcommand.org/lc3_lts0010.php
-
 # What is "the Shell"?
 
 Simply put, the shell is a program that takes commands from the keyboard
@@ -608,12 +529,8 @@ In particular, it probably has itsfocus policyset to "click to
 - TheWikipedia entry for Steve Bourne, developer of the original Bourne shell
 - TheWikipedia article on the Unix shell, the place where all this fun got started
 - The"Power Terminals"Adventure
-
 ## Learning the shell - Lesson 2: Navigation
-
-
 来源: https://linuxcommand.org/lc3_lts0020.php
-
 # Navigation
 
 In this lesson, we will introduce our first three commands:pwd(print working
@@ -725,16 +642,13 @@ cd -
     directory as hidden files.
 File names that begin with a period character are hidden. This only
 ls -a
-
 - File names in Linux, like Unix, are case sensitive. The file names
     "File1" and "file1" refer to different files.
 File names in Linux, like Unix, are case sensitive. The file names
-
 - Linux has no concept of a "file extension" like Windows systems. You
     may name files any way you like. However, while Linux itself does not care
     about file extensions, many application programs do.
 Linux has no concept of a "file extension" like Windows systems. You
-
 - Though Linux supports long file names which may contain embedded
     spaces and punctuation characters, limit the punctuation characters to
     period, dash, and underscore.Most importantly, do not embed spaces
@@ -742,23 +656,17 @@ Linux has no concept of a "file extension" like Windows systems. You
     file name, use underscore characters. You will thank yourself
     later.
 Though Linux supports long file names which may contain embedded
-
 ## Learning the shell - Lesson 3: Looking around
-
-
 来源: https://linuxcommand.org/lc3_lts0030.php
-
 # Looking Around
 
 Now that we know how to move from working directory to working directory,
 we're going to take a tour of our Linux system and, along the way, learn some
 things about what makes it tick. But before we begin, we have to learn about
 some tools that will come in handy during our journey. These are:
-
 - ls(list files and directories)
 - less(view text files)
 less
-
 - file(classify a file's contents)
 file
 Thelscommand is used to
@@ -924,19 +832,14 @@ number can be.  This is especially true of the important configuration files.
 During our adventure we will see that many features of the operating system are
 controlled by text configuration files and shell scripts. In Linux, there are
 no secrets!
-
 ## Learning the shell - Lesson 4: A Guided Tour
-
-
 来源: https://linuxcommand.org/lc3_lts0040.php
-
 # A Guided Tour
 
 It's time to take our tour. The table below lists some interesting places to
 explore. This is by no means a complete list, but it should prove to be an
 interesting adventure. For each of the directories listed below, do the
 following:
-
 - cdinto each directory.
 - Uselsto list the contents of the directory.
 - If there is an interesting file, use thefilecommand to determine its contents.
@@ -955,8 +858,8 @@ Interesting directories and their contentsDirectoryDescription/The root director
       the system's disk drives./etc/hostsThis file lists the network host names
       and IP addresses that are intrinsically known
       to the system./etc/init.dThis directory contains the scripts
-      that start various system services
-      at boot time./bin, /usr/binThese two directories contain most of the programs for the
+      that start various system services 
+      at boot time./bin, /usr/binThese two directories contain most of the programs for the 
     system. The/bindirectory has the essential
     programs that the system requires to operate,
     while/usr/bincontains
@@ -1047,7 +950,7 @@ This file lists the network host names
       to the system.
 /etc/init.d
 This directory contains the scripts
-/bin, /usr/binThese two directories contain most of the programs for the
+/bin, /usr/binThese two directories contain most of the programs for the 
     applications for the system's users.
 /bin, /usr/bin
 /sbin, /usr/sbinThesbindirectories
@@ -1160,17 +1063,12 @@ To create symbolic links, we use thelncommand.
 
 - To learn more about the organization of the Linux filesystem, consult
   theFilesystem Hierarchy Standard
-
 ## Learning the shell - Lesson 5: Manipulating Files
-
-
 来源: https://linuxcommand.org/lc3_lts0050.php
-
 # Manipulating Files
 
 This lesson will introduce the following
 commands:
-
 - cp- copy files and directories
 - mv- move or rename files and directories
 - rm- remove files and directories
@@ -1380,46 +1278,34 @@ rm *~
 ## Further Reading
 
 - Chapter 4 ofThe Linux Command Linecovers this topic in more detail
-
 ## Learning the shell - Lesson 6: Working with Commands
-
-
 来源: https://linuxcommand.org/lc3_lts0060.php
-
 # Working with Commands
 
 Up until now, we have seen a number of commands and their mysterious options
 and arguments. In this lesson, we will try to remove some of that mystery. We
 will introduce the following commands.
-
 - type- Display information about command type
 type
-
 - which- Locate a command
 which
-
 - help- Display reference page for shell builtin
 help
-
 - man- Display an on-line command reference
 man
 
 ## What are "Commands?"
 
 Commands can be one of 4 different kinds:
-
 - An executable programlike all those files we saw in /usr/bin. Within this
 category, programs can becompiled binariessuch as programs written in C and
 C++, or programs written inscripting languagessuch as the shell, Perl, Python,
 Ruby, etc.
-
 - A command built into the shell itself.bash provides a number of commands
 internally calledshell builtins. Thecdcommand,
 for example, is a shell builtin.
-
 - A shell function.These are miniature shell scripts incorporated into theenvironment. We will cover configuring the environment and writing shell
 functions in later lessons, but for now, just be aware that they exist.
-
 - An alias.Commands that we can define ourselves, built from other commands.
   This will be covered in a later lesson.
 
@@ -1506,12 +1392,8 @@ viewed with a web browser. We may encounter some files ending with a “.gz”
 extension. This indicates that they have been compressed with thegzipcompression program. The gzip package includes a
 special version oflesscalledzlessthat will display the contents of gzip-compressed
 zless
-
 ## Learning the shell - Lesson 7: I/O Redirection
-
-
 来源: https://linuxcommand.org/lc3_lts0070.php
-
 # I/O Redirection
 
 In this lesson, we will explore a powerful feature used by command line
@@ -1678,7 +1560,6 @@ fmt.
 pr. pr
 lpr. lpr
 The second example starts with an unsorted
-
 - Viewing the contents of tar filesOften you will see software distributed as agzipped tar file. This is a traditional
     Unix style tape archive file (created withtar) that has
     been compressed withgzip. You can
@@ -1695,17 +1576,11 @@ tar tzvf name_of_file.tar.gz | less
 
 - Chapter 6 ofThe Linux Command Linecovers
   this topic in more detail.
-
 - Chapters 19 through 21 ofThe Linux Command Lineprovide an in-depth look
   at the text processing tools available in Linux.
-
 - To learn more about the AWK programming language, consider theAWK adventure.
-
 ## Learning the shell - Lesson 8: Expansion
-
-
 来源: https://linuxcommand.org/lc3_lts0080.php
-
 # Expansion
 
 Each time we type a command line and press the enter key, bash performs
@@ -1967,5 +1842,3 @@ echo -e "Inserting several blank lines\n\n\n"
 echo -e "Words\tseparated\tby\thorizontal\ttabs."
 echo -e "\aMy computer went \"beep\"."
 echo -e "DEL C:\\WIN2K\\LEGACY_OS.EXE"
-
-```

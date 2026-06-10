@@ -1,30 +1,21 @@
 # Hermes Skills Collection
 
-
 Synced from github.com/aivos-xie/hermes-skills
 
 ---
-
 # apple
-
 
 Apple / macOS skills — tools that interact with the Mac desktop (Finder,
 native apps) or system features (accessibility, screenshots).
-
 # automation
-
 # autonomous-ai-agents
 
-
 description: Skills for spawning and orchestrating autonomous AI coding agents and multi-agent workflows — running independent agent processes, delegating tasks, and coordinating parallel workstreams.
-
 # coding-principles
-
 
 name: coding-principles
 description: 编码四原则 — 先思考、求简、精准修改、目标驱动
 triggers:
-
   - coding
   - programming
   - code review
@@ -34,34 +25,28 @@ triggers:
 
 # Coding Principles Skill
 
-
 编码时必须遵循的四条核心原则。
 
 ## 原则
 
-
 ### 1. Think Before Coding（先思考再编码）
-
 - **解决的问题**：错误的假设、隐藏的困惑、缺失的权衡
 - 动手之前先理解需求，梳理思路，考虑边界情况
 - 不要急于实现，先确认方向正确
 
 ### 2. Simplicity First（先求简）
-
 - **解决的问题**：过度复杂化、臃肿的抽象
 - 优先选择最简单的实现方案
 - 避免过度设计，不要为了"优雅"而增加不必要的复杂度
 - 能用 10 行解决的问题不要用 100 行
 
 ### 3. Surgical Changes（精准修改）
-
 - **解决的问题**：正交编辑、修改不该触碰的代码
 - 只改需要改的部分，不要"顺手"重构不相关的代码
 - 每次修改都要有明确的目的
 - 最小化变更范围，降低引入新 bug 的风险
 
 ### 4. Goal-Driven Execution（以目标为导向的执行）
-
 - **解决的问题**：通过测试先行、可验证的成功标准来提高效率
 - 先明确"成功"的定义
 - 用测试来验证实现是否符合预期
@@ -69,28 +54,19 @@ triggers:
 
 ## 使用方式
 
-
 在编码、调试、代码审查时，参考这四条原则来指导决策。
 
 # creative
 
-
 description: Creative content generation — ASCII art, hand-drawn style diagrams, and visual design tools.
-
 # data-science
 
-
 description: Skills for data science workflows — interactive exploration, Jupyter notebooks, data analysis, and visualization.
-
 # devops
-
 # diagramming
 
-
 description: Diagram creation skills for generating visual diagrams, flowcharts, architecture diagrams, and illustrations using tools like Excalidraw.
-
 # dogfood
-
 
 name: dogfood
 description: "Exploratory QA of web apps: find bugs, evidence, reports."
@@ -103,20 +79,16 @@ metadata:
 
 # Dogfood: Systematic Web Application QA Testing
 
-
 ## Overview
-
 
 This skill guides you through systematic exploratory QA testing of web applications using the browser toolset. You will navigate the application, interact with elements, capture evidence of issues, and produce a structured bug report.
 
 ## Prerequisites
 
-
 - Browser toolset must be available (`browser_navigate`, `browser_snapshot`, `browser_click`, `browser_type`, `browser_vision`, `browser_console`, `browser_scroll`, `browser_back`, `browser_press`)
 - A target URL and testing scope from the user
 
 ## Inputs
-
 
 The user provides:
 1. **Target URL** — the entry point for testing
@@ -125,11 +97,9 @@ The user provides:
 
 ## Workflow
 
-
 Follow this 5-phase systematic workflow:
 
 ### Phase 1: Plan
-
 
 1. Create the output directory structure:
    ```
@@ -138,7 +108,6 @@ Follow this 5-phase systematic workflow:
    └── report.md          # Final report (generated in Phase 5)
 2. Identify the testing scope based on user input.
 3. Build a rough sitemap by planning which pages and features to test:
-
    - Landing/home page
    - Navigation links (header, footer, sidebar)
    - Key user flows (sign up, login, search, checkout, etc.)
@@ -146,7 +115,6 @@ Follow this 5-phase systematic workflow:
    - Edge cases (empty states, error pages, 404s)
 
 ### Phase 2: Explore
-
 
 For each page or feature in your plan:
 
@@ -165,7 +133,6 @@ For each page or feature in your plan:
    The `annotate=true` flag overlays numbered `[N]` labels on interactive elements. Each `[N]` maps to ref `@eN` for subsequent browser commands.
 
 5. **Test interactive elements** systematically:
-
    - Click buttons and links: `browser_click(ref="@eN")`
    - Fill forms: `browser_type(ref="@eN", text="test input")`
    - Test keyboard navigation: `browser_press(key="Tab")`, `browser_press(key="Enter")`
@@ -174,13 +141,11 @@ For each page or feature in your plan:
    - Test empty submissions
 
 6. **After each interaction**, check for:
-
    - Console errors: `browser_console()`
    - Visual changes: `browser_vision(question="What changed after the interaction?")`
    - Expected vs actual behavior
 
 ### Phase 3: Collect Evidence
-
 
 For every issue found:
 
@@ -189,7 +154,6 @@ For every issue found:
    Save the `screenshot_path` from the response — you will reference it in the report.
 
 2. **Record the details**:
-
    - URL where the issue occurs
    - Steps to reproduce
    - Expected behavior
@@ -198,12 +162,10 @@ For every issue found:
    - Screenshot path
 
 3. **Classify the issue** using the issue taxonomy (see `references/issue-taxonomy.md`):
-
    - Severity: Critical / High / Medium / Low
    - Category: Functional / Visual / Accessibility / Console / UX / Content
 
 ### Phase 4: Categorize
-
 
 1. Review all collected issues.
 2. De-duplicate — merge issues that are the same bug manifesting in different places.
@@ -213,13 +175,11 @@ For every issue found:
 
 ### Phase 5: Report
 
-
 Generate the final report using the template at `templates/dogfood-report-template.md`.
 
 The report must include:
 1. **Executive summary** with total issue count, breakdown by severity, and testing scope
 2. **Per-issue sections** with:
-
    - Issue number and title
    - Severity and category badges
    - URL where observed
@@ -232,7 +192,6 @@ The report must include:
 Save the report to `{output_dir}/report.md`.
 
 ## Tools Reference
-
 
 | Tool | Purpose |
 |------|---------|
@@ -248,7 +207,6 @@ Save the report to `{output_dir}/report.md`.
 
 ## Tips
 
-
 - **Always check `browser_console()` after navigating and after significant interactions.** Silent JS errors are among the most valuable findings.
 - **Use `annotate=true` with `browser_vision`** when you need to reason about interactive element positions or when the snapshot refs are unclear.
 - **Test with both valid and invalid inputs** — form validation bugs are common.
@@ -257,9 +215,7 @@ Save the report to `{output_dir}/report.md`.
 - **Check responsive behavior** by noting any layout issues visible in screenshots.
 - **Don't forget edge cases**: empty states, very long text, special characters, rapid clicking.
 - When reporting screenshots to the user, include `MEDIA:<screenshot_path>` so they can see the evidence inline.
-
 # domain
-
 
 name: domain-intel
 description: Passive domain reconnaissance using Python stdlib. Use this skill for subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain availability checks, and bulk multi-domain analysis. No API keys required. Triggers on requests like "find subdomains", "check ssl cert", "whois lookup", "is this domain available", "bulk check these domains".
@@ -270,7 +226,6 @@ Zero dependencies. Zero API keys. Works out of the box.
 
 ## Capabilities
 
-
 - Subdomain discovery via crt.sh certificate transparency logs
 - Live SSL/TLS certificate inspection (expiry, cipher, SANs, TLS version)
 - WHOIS lookup — supports 100+ TLDs via direct TCP queries
@@ -280,37 +235,25 @@ Zero dependencies. Zero API keys. Works out of the box.
 
 ## Data Sources
 
-
 - crt.sh — Certificate Transparency logs
-- WHOIS servers — Direct TCP to 100+ authoritative TLD servers
+- WHOIS servers — Direct TCP to 100+ authoritative TLD servers  
 - Google DNS-over-HTTPS — MX/NS/TXT/CNAME resolution
 - System DNS — A/AAAA records
-
 # email
 
-
 description: Skills for sending, receiving, searching, and managing email from the terminal.
-
 # gaming
 
-
 description: Skills for setting up, configuring, and managing game servers, modpacks, and gaming-related infrastructure.
-
 # gifs
 
-
 description: Skills for searching, downloading, and working with GIFs and short-form animated media.
-
 # github
 
-
 description: GitHub workflow skills for managing repositories, pull requests, code reviews, issues, and CI/CD pipelines using the gh CLI and git via terminal.
-
 # inference-sh
 
-
 # inference.sh
-
 
 Run 150+ AI applications in the cloud via the [inference.sh](https://inference.sh) platform.
 
@@ -318,11 +261,9 @@ Run 150+ AI applications in the cloud via the [inference.sh](https://inference.s
 
 ## Available Skills
 
-
 - **cli**: Use the inference.sh CLI (`infsh`) via the terminal tool
 
 ## What's Included
-
 
 - **Image Generation**: FLUX, Reve, Seedream, Grok Imagine, Gemini
 - **Video Generation**: Veo, Wan, Seedance, OmniHuman, HunyuanVideo
@@ -331,55 +272,34 @@ Run 150+ AI applications in the cloud via the [inference.sh](https://inference.s
 - **3D**: Rodin
 - **Social**: Twitter/X automation
 - **Audio**: TTS, voice cloning
-
 # mcp
 
-
 description: Skills for working with MCP (Model Context Protocol) servers, tools, and integrations. Documents the built-in native MCP client — configure servers in config.yaml for automatic tool discovery.
-
 # media
 
-
 description: Skills for working with media content — YouTube transcripts, GIF search, music generation, and audio visualization.
-
 # mlops
 
-
 description: Knowledge and Tools for Machine Learning Operations - tools and frameworks for training, fine-tuning, deploying, and optimizing ML/AI models
-
 # note-taking
 
-
 description: Note taking skills, to save information, assist with research, and collab on multi-session planning and information sharing.
-
 # productivity
 
-
 description: Skills for document creation, presentations, spreadsheets, and other productivity workflows.
-
 # red-teaming
-
 # research
 
-
 description: Skills for academic research, paper discovery, literature review, domain reconnaissance, market data, content monitoring, and scientific knowledge retrieval.
-
 # security
-
 # smart-home
 
-
 description: Skills for controlling smart home devices — lights, switches, sensors, and home automation systems.
-
 # social-media
 
-
 description: Skills for interacting with social platforms and social-media workflows — posting, reading, monitoring, and account operations.
-
 # software-development
-
 # yuanbao
-
 
 name: yuanbao
 description: "Yuanbao (元宝) groups: @mention users, query info/members."
@@ -387,9 +307,7 @@ description: "Yuanbao (元宝) groups: @mention users, query info/members."
 
 # Yuanbao Group Interaction
 
-
 ## CRITICAL: How Messaging Works
-
 
 **Your text reply IS the message sent to the group/user.** The gateway automatically delivers your response text to the chat. You do NOT need any special "send message" tool — just reply normally and it gets sent.
 
@@ -399,7 +317,6 @@ When you include `@nickname` in your reply text, the gateway automatically conve
 
 ## Available Tools
 
-
 | Tool | When to use |
 |------|------------|
 | `yb_query_group_info` | Query group name, owner, member count |
@@ -407,7 +324,6 @@ When you include `@nickname` in your reply text, the gateway automatically conve
 | `yb_send_dm` | Send a private/direct message (DM / 私信) to a user, with optional media files |
 
 ## @Mention Workflow
-
 
 When you need to @mention / 艾特 someone:
 
@@ -427,14 +343,12 @@ Step 2 — your reply (this gets sent to the group with a working @mention):
 **That's it.** No extra explanation needed. Keep it short and natural.
 
 **Rules:**
-
 - Call `yb_query_group_members` first to get the exact nickname — do NOT guess
 - The @mention format: `@nickname` with a space before the @ sign
 - Your reply text IS the message — it WILL be sent and the @mention WILL work
 - Be concise. Do NOT explain how @mention works to the user.
 
 ## Send DM (Private Message) Workflow
-
 
 When someone asks to send a private message / 私信 / DM to a user:
 
@@ -463,11 +377,9 @@ yb_send_dm({
 
 ## Query Group Info
 
-
 yb_query_group_info({ "group_code": "328306697" })
 
 ## Query Members
-
 
 | Action | Description |
 |--------|-------------|
@@ -476,7 +388,6 @@ yb_query_group_info({ "group_code": "328306697" })
 | `list_all` | List all members |
 
 ## Notes
-
 
 - `group_code` comes from chat_id: `group:328306697` → `328306697`
 - Groups are called "派 (Pai)" in the Yuanbao app

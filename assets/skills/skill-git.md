@@ -6,15 +6,10 @@ crawled: 2026-06-11
 pages: 12
 
 # Git 知识库
-
-
 > 爬取来源: https://git-scm.com/docs | 12 页内容
 
 ## Git - Reference
-
-
 来源: https://git-scm.com/docs
-
 # Reference
 
 Quick reference guide:Cheat Sheet
@@ -148,10 +143,7 @@ Quick reference guide:Cheat Sheet
 - update-ref
 - verify-pack
 - write-tree
-
 ## Git
-
-
 来源: https://git-scm.com/
 
 Git is afree and open sourcedistributed version control system designed to handle everything from small to
@@ -163,13 +155,8 @@ Pro Gitby Scott Chacon and Ben Straub is available toread online for free.
 #### Latest source release
 
 ## Git
-
-
 来源: https://git-scm.com/about
-
 # About Git
-
-
 ## Git is fast
 
 Git was built to work on the Linux kernel, meaning that it was built to handle
@@ -199,15 +186,9 @@ Git is released under theGNU General Public License version 2.0, which is anopen
   share and change free software---to make sure the software is
   free for all its users.
 However, we do restrict the use of the term "Git" and thelogosto avoid confusion. Please see ourtrademarkpolicy for details.
-
 ## Git
-
-
 来源: https://git-scm.com/about/trademark
-
 ## GIT TRADEMARK POLICY
-
-
 ### 1 Purpose
 
 The Git Project is a member project of Software Freedom
@@ -227,14 +208,11 @@ Conservancy has adopted this Policy to protect the Marks (as
   Policy, you help to promote to the public the freedom to use and
   develop the Git software.
 Throughout this Policy, the word "Marks" refers to the following:
-
 - The literal mark "Git"
 The literal mark "Git"
-
 - The logos and graphic marks displayed and available for
   download athttps://git-scm.com/community/logos
 The logos and graphic marks displayed and available for
-
 - The slogan "the stupid content tracker"
 The slogan "the stupid content tracker"
 This Policy is only concerned with the Marks associated with the Git
@@ -242,8 +220,6 @@ This Policy is only concerned with the Marks associated with the Git
   Git software.
 
 ### 2 Guidelines for using the Marks
-
-
 #### 2.1 Trademark symbol on first mention
 
 The first prominent mention of a Mark should be immediately
@@ -265,7 +241,6 @@ You can use "Git and the Git logo are either registered trademarks
 
 You may use the Marks without prior written permission (subject
   to the other sections):
-
 - To refer to the Git software in substantially unmodified
   form. "Substantially unmodified" means built from the source
   code provided by the Git Project, possibly with minor
@@ -275,22 +250,18 @@ You may use the Marks without prior written permission (subject
   particular operating system distribution, or the inclusion of
   bug-fix patches.
 To refer to the Git software in substantially unmodified
-
 - To identify the Git software as a distinct component of a
   software offering.
 To identify the Git software as a distinct component of a
-
 - To factually refer to the Git Project itself, its products,
   or its protocols.
 To factually refer to the Git Project itself, its products,
 In addition, you may use the Marks to refer to products,
   services, or communities outside of the Git software and Git
   Project without written permission in the following contexts:
-
 - When referring to Git software that is not substantially
   unmodified, to say that such software is a "derivative of"
   or "based on" Git.
-
 - When referring to a third-party software product and/or service that
   is interoperable with the Git software, in the format "[Product Name]
   for Git" -- provided that such use otherwise complies with the rest of
@@ -304,30 +275,24 @@ We do not charge a fee for a license to use the Marks
 #### 2.3 Prohibited usages of the Marks
 
 You may not use the Marks in the following ways:
-
 - In any way likely to cause confusion as to the identity of the
   Git Project, the provenance of its software, or the
   software's license.
 In any way likely to cause confusion as to the identity of the
-
 - In any way that indicates a greater degree of association
   between you and the Git Project than actually exists.
 In any way that indicates a greater degree of association
-
 - In any way that implies a designated successor to Git (e.g.,
   "Git++" is not permitted).
 In any way that implies a designated successor to Git (e.g.,
-
 - In any way that indicates that Git favors one distribution,
   platform, product, etc. over another except where explicitly
   indicated in writing by Conservancy.
 In any way that indicates that Git favors one distribution,
-
 - In any other way that dilutes or otherwise infringes upon the
   trademark rights of Conservancy and the Git Project in the
   Marks.
 In any other way that dilutes or otherwise infringes upon the
-
 - To refer to the Git software, modified by a third party to the point of
   inoperability with Git software in substantially unmodified form.
 To refer to the Git software, modified by a third party to the point of
@@ -359,14 +324,11 @@ You may not create and/or sell merchandise bearing any of the Marks. If
 ### 3 Rights reserved by Conservancy
 
 Conservancy reserves the sole right to:
-
 - Determine compliance with this Policy.
 Determine compliance with this Policy.
-
 - Modify this Policy in ways consistent with its mission of
   protecting the public.
 Modify this Policy in ways consistent with its mission of
-
 - Grant exceptions to this Policy, of any kind and for any reason
   whatsoever, other clauses notwithstanding.
 Grant exceptions to this Policy, of any kind and for any reason
@@ -385,15 +347,9 @@ If you have questions about using the Marks, or if you think you
   this Policy and would like permission for that use, please contact
   Conservancy by emailingTRADEMARK@SFCONSERVANCY.ORGor by writing to Git Project c/o Software Freedom Conservancy, 137
   Montague St.  Ste 380, Brooklyn, NY 11201-3548.
-
 ## Git - Learn
-
-
 来源: https://git-scm.com/learn
-
 # Learn
-
-
 ### Pro Git Book
 
 The entire Pro Git book written
@@ -403,7 +359,6 @@ The entire Pro Git book written
 ### Videos
 
 Short videos introducing Git for total beginners.
-
 - What is Version Control?(05:59)
 - What is Git?(08:15)
 - Get Going with Git(04:26)
@@ -417,18 +372,10 @@ The most common Git commands, with diagrams illustrating the difference
 ### External Links
 
 Ever-evolving collection of tutorials, books, videos, and other Git resources from the community.
-
 ## Git Cheat Sheet
-
-
 来源: https://git-scm.com/cheat-sheet
-
 # Git Cheat Sheet
-
-
 ## Getting Started
-
-
 ### Start a new repo:
 
 ```
@@ -439,8 +386,6 @@ git init
 git clone <url>
 
 ## Prepare to Commit
-
-
 ### Add untracked file or unstaged changes:
 
 git add <file>
@@ -478,8 +423,6 @@ git reset
 git status
 
 ## Make Commits
-
-
 ### Make a commit (and open text editor to write message):
 
 git commit
@@ -493,8 +436,6 @@ git commit -m 'message'
 git commit -am 'message'
 
 ## Move Between Branches
-
-
 ### Switch branches:
 
 git switch <name>
@@ -518,10 +459,7 @@ git branch--sort=-committerdate
 git branch -d <name>
 
 ### Force delete a branch:
-
 ## Diff Staged/Unstaged Changes
-
-
 ### Diff all staged and unstaged changes:
 
 git diff HEAD
@@ -535,8 +473,6 @@ git diff --staged
 git diff
 
 ## Diff Commits
-
-
 ### Show diff between a commit and its parent:
 
 git show <commit>
@@ -573,8 +509,6 @@ HEAD
 HEAD^^^ or HEAD~3
 
 ## Discard Your Changes
-
-
 ### Delete unstaged changes to one file:
 
 git restore <file>
@@ -598,8 +532,6 @@ git clean
 git stash
 
 ## Edit History
-
-
 ### "Undo" the most recent commit (keep your working directory the same):
 
 git reset HEAD^
@@ -620,8 +552,6 @@ git reset --hard <commit>
 git commit --amend
 
 ## Code Archaeology
-
-
 ### Look at a branch's history:
 
 git log main
@@ -645,8 +575,6 @@ git log -G banana
 git blame <file>
 
 ## Combine Diverged Branches
-
-
 ### Combine with rebase:
 
 git switch banana
@@ -662,14 +590,11 @@ git merge banana
 git merge --squash banana
 
 ### Bring a branch up to date with another branch (aka "fast-forward merge"):
-
 ### Copy one commit onto the current branch:
 
 git cherry-pick <commit>
 
 ## Restore an Old File
-
-
 ### Get the version of a file from another commit:
 
 git checkout <commit> <file>
@@ -680,8 +605,6 @@ git restore <file> --source <commit>
 git remote add <name> <url>
 
 ## Push Your Changes
-
-
 ### Push themainbranch to the remoteorigin:
 
 origin
@@ -704,8 +627,6 @@ git push --force-with-lease
 git push --tags
 
 ## Pull Changes
-
-
 ### Fetch changes (but don't change any of your local branches):
 
 git fetch origin main
@@ -720,8 +641,6 @@ git pull origin main
 git pull
 
 ## Configure Git
-
-
 ### Set a config option:
 
 git config user.name 'Your Name'
@@ -739,8 +658,6 @@ git config alias.st status
 man git-config
 
 ## Important Files
-
-
 ### Local git config:
 
 .git/config
@@ -752,12 +669,8 @@ man git-config
 ### List of files to ignore:
 
 .gitignore
-
 ## Git - Videos
-
-
 来源: https://git-scm.com/videos
-
 # Videos
 
 - What is Git?Length:08:15
@@ -765,36 +678,25 @@ man git-config
 #### What is Git?
 
 Length:08:15
-
 - Quick Wins with GitLength:05:06
 
 #### Quick Wins with Git
 
 Length:05:06
-
 - What is Version Control?Length:05:59
 
 #### What is Version Control?
 
 Length:05:59
-
 - Get Going with GitLength:04:26
 
 #### Get Going with Git
 
 Length:04:26
-
 ## Git - External Links
-
-
 来源: https://git-scm.com/doc/ext
-
 # External Links
-
-
 ## Tutorials
-
-
 ### Short & Sweet
 
 - Official Git TutorialThe official gittutorial man page is a good place to start.
@@ -802,19 +704,16 @@ Length:04:26
 #### Official Git Tutorial
 
 The official gittutorial man page is a good place to start.
-
 - Git ImmersionA guided tour that walks through the fundamentals of Git.
 
 #### Git Immersion
 
 A guided tour that walks through the fundamentals of Git.
-
 - Everyday GitLearn the basics with 20 of the most common commands.
 
 #### Everyday Git
 
 Learn the basics with 20 of the most common commands.
-
 - Backlog Git TutorialIt includes an introduction for complete beginners as well as hands-on tutorials for intermediate learners.
             (Japanese/Korean/Simplified Chinese/Traditional Chinese/Vietnamese)
 
@@ -828,42 +727,34 @@ It includes an introduction for complete beginners as well as hands-on tutorials
             TutorialA hands-on introduction to the entire Git porcelain.
 
 #### Ry’s Git
-
-
             Tutorial
 
 A hands-on introduction to the entire Git porcelain.
-
 - Git for Computer ScientistsA quick introduction to Git internals for people who aren't scared by words like Directed Acyclic Graph.
 
 #### Git for Computer Scientists
 
 A quick introduction to Git internals for people who aren't scared by words like Directed Acyclic Graph.
-
 - Git MagicAn alternative book with the sourceonline.
 
 #### Git Magic
 
 An alternative book with the sourceonline.
-
 - Git for Data ScienceBest practices and typical Git workflows for data science.
 
 #### Git for Data Science
 
 Best practices and typical Git workflows for data science.
-
 - Git for DesignersNo knowledge of version control? No problem.
 
 #### Git for Designers
 
 No knowledge of version control? No problem.
-
 - git-drawgit-draw is a small tool that draws nearly the full content of a tiny git repository as a graph. It helps people with an engineering background learning Git's internals.
 
 #### git-draw
 
 git-draw is a small tool that draws nearly the full content of a tiny git repository as a graph. It helps people with an engineering background learning Git's internals.
-
 - GitHub DocsGuides on a variety of Git and GitHub related topics.
 
 #### GitHub Docs
@@ -877,43 +768,36 @@ Guides on a variety of Git and GitHub related topics.
 #### Pro Git
 
 By Scott Chacon and Ben Straub
-
 - Git in PracticeBy Mike McQuaid
 
 #### Git in Practice
 
 By Mike McQuaid
-
 - Git in the TrenchesBy Peter Savage
 
 #### Git in the Trenches
 
 By Peter Savage
-
 - Git for TeamsBy Emma Jane Hogbin Westby
 
 #### Git for Teams
 
 By Emma Jane Hogbin Westby
-
 - Learning Git: A Hands-On and Visual Guide to the Basics of GitBy Anna Skoulikari
 
 #### Learning Git: A Hands-On and Visual Guide to the Basics of Git
 
 By Anna Skoulikari
-
 - Version Control with Git, 2nd ed.By Jon Loeliger & Matthew McCullough
 
 #### Version Control with Git, 2nd ed.
 
 By Jon Loeliger & Matthew McCullough
-
 - Pragmatic Guide to GitBy Travis Swicegood
 
 #### Pragmatic Guide to Git
 
 By Travis Swicegood
-
 - Pragmatic Version Control Using GitBy Travis Swicegood
 
 #### Pragmatic Version Control Using Git
@@ -923,19 +807,16 @@ By Travis Swicegood
 #### Git Internals Peepcode PDF
 
 By Scott Chacon
-
 - Learn Git in a Month of LunchesBy Rick Umali
 
 #### Learn Git in a Month of Lunches
 
 By Rick Umali
-
 - Beginning Git and GitHubBy Mariot Tsitoara
 
 #### Beginning Git and GitHub
 
 By Mariot Tsitoara
-
 - Boost Your Git DXBy Adam Johnson
 
 #### Boost Your Git DX
@@ -949,7 +830,6 @@ By Adam Johnson
 #### Tech Talk: Linus Torvalds on Git
 
 Linus Torvalds visits Google to share his thoughts on Git, the SCM system he created.
-
 - Introduction to Git: Scott ChaconThis talk introduces the Git Version Control System by looking at what Git is doing when you run the commands you need to do basic version control with it.
 
 #### Introduction to Git: Scott Chacon
@@ -963,18 +843,13 @@ This talk introduces the Git Version Control System by looking at what Git is do
 #### Versioned and reproducible storage of code and data
 
 In this course you will learn how to create reproducible research results and write source code efficiently together.
-
 - Versioned and reproducible storage of code and dataThree-day course on Git in data science
 
 #### Versioned and reproducible storage of code and data
 
 Three-day course on Git in data science
-
 ## Git - Tools
-
-
 来源: https://git-scm.com/tools
-
 # Tools
 
 The community has built a huge number of tools to make it easier to use Git.
@@ -993,15 +868,9 @@ Graphical user interfaces and editor integrations
 ### Hosting
 
 Git repository hosting
-
 ## Git - Command Line Tools
-
-
 来源: https://git-scm.com/tools/command-line
-
 # Command Line Tools
-
-
 ### TUIs
 
 - lazygit: simple terminal UI for git commands
@@ -1050,48 +919,38 @@ Git repository hosting
 - git-secrets: Prevents you from committing secrets and credentials into git repositories
 - Commitizen: Create committing rules for projects, auto bump versions and auto changelog generation
 - git-town: Additional Git commands that automate the creation, synchronization, shipping, and cleanup of Git branches
-
 ## Git - GUI Clients
-
-
 来源: https://git-scm.com/tools/guis
-
 # GUI Clients
 
 Git comes with built-in GUI tools for committing (git-gui) and browsing (gitk), but there are several third-party tools for users looking for platform-specific experience.
 If you want to add another GUI tool to this list, justfollow the instructions.
 AllWindowsMacLinuxAndroidiOS0LinuxGUIs are shown below ↓
-
 - GitHub DesktopPlatforms:Mac, WindowsPrice:FreeLicense:MIT
 
 #### GitHub Desktop
 
 Platforms:Mac, WindowsPrice:FreeLicense:MIT
-
 - SourceTreePlatforms:Mac, WindowsPrice:FreeLicense:Proprietary
 
 #### SourceTree
 
 Platforms:Mac, WindowsPrice:FreeLicense:Proprietary
-
 - GitKraken DesktopPlatforms:Linux, Mac, WindowsPrice:Free / $48+/user annuallyLicense:Proprietary
 
 #### GitKraken Desktop
 
 Platforms:Linux, Mac, WindowsPrice:Free / $48+/user annuallyLicense:Proprietary
-
 - TortoiseGitPlatforms:WindowsPrice:FreeLicense:GNU GPL
 
 #### TortoiseGit
 
 Platforms:WindowsPrice:FreeLicense:GNU GPL
-
 - MagitPlatforms:Linux, Mac, WindowsPrice:FreeLicense:GNU GPL
 
 #### Magit
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:GNU GPL
-
 - Git ExtensionsPlatforms:WindowsPrice:FreeLicense:GNU GPL
 
 #### Git Extensions
@@ -1101,61 +960,51 @@ Platforms:Linux, Mac, WindowsPrice:FreeLicense:GNU GPL
 #### SmartGit
 
 Platforms:Linux, Mac, WindowsPrice:Free for non-commercial use / $59/user annuallyLicense:Proprietary
-
 - TowerPlatforms:Mac, WindowsPrice:$69+/user annually (Free 30-day trial)License:Proprietary
 
 #### Tower
 
 Platforms:Mac, WindowsPrice:$69+/user annually (Free 30-day trial)License:Proprietary
-
 - MeGit (based on EGit)Platforms:Linux, Mac, WindowsPrice:FreeLicense:EPL2.0
 
 #### MeGit (based on EGit)
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:EPL2.0
-
 - Sublime MergePlatforms:Linux, Mac, WindowsPrice:$99/user / $75/user annually (Free evaluation)License:Proprietary
 
 #### Sublime Merge
 
 Platforms:Linux, Mac, WindowsPrice:$99/user / $75/user annually (Free evaluation)License:Proprietary
-
 - GitUpPlatforms:MacPrice:FreeLicense:GNU GPL
 
 #### GitUp
 
 Platforms:MacPrice:FreeLicense:GNU GPL
-
 - ForkPlatforms:Mac, WindowsPrice:$59.99 (Free evaluation)License:Proprietary
 
 #### Fork
 
 Platforms:Mac, WindowsPrice:$59.99 (Free evaluation)License:Proprietary
-
 - GlintPlatforms:Linux, Mac, WindowsPrice:Free / $35/user annuallyLicense:Proprietary
 
 #### Glint
 
 Platforms:Linux, Mac, WindowsPrice:Free / $35/user annuallyLicense:Proprietary
-
 - gitgPlatforms:Linux, WindowsPrice:FreeLicense:GNU GPL
 
 #### gitg
 
 Platforms:Linux, WindowsPrice:FreeLicense:GNU GPL
-
 - ungitPlatforms:Linux, Mac, WindowsPrice:FreeLicense:MIT
 
 #### ungit
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:MIT
-
 - FugitivePlatforms:Linux, Mac, WindowsPrice:FreeLicense:Vim
 
 #### Fugitive
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:Vim
-
 - GitAhead (no longer under active development)Platforms:Linux, Mac, WindowsPrice:FreeLicense:MIT
 
 #### GitAhead (no longer under active development)
@@ -1169,7 +1018,6 @@ Platforms:Linux, Mac, WindowsPrice:FreeLicense:Vim
 #### tig
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:GPL-2.0
-
 - GuitarPlatforms:Linux, Mac, WindowsPrice:FreeLicense:GNU GPL
 
 #### Guitar
@@ -1179,25 +1027,21 @@ Platforms:Linux, Mac, WindowsPrice:FreeLicense:GPL-2.0
 #### GitButler
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:FSL-1.1-MIT
-
 - AnchorpointPlatforms:Mac, WindowsPrice:Free / 20€License:Proprietary
 
 #### Anchorpoint
 
 Platforms:Mac, WindowsPrice:Free / 20€License:Proprietary
-
 - Working CopyPlatforms:iOSPrice:Free / $19.99License:Proprietary
 
 #### Working Copy
 
 Platforms:iOSPrice:Free / $19.99License:Proprietary
-
 - GitfoxPlatforms:MacPrice:€39,99/user annually / €79,99 (Free 30-day trial)License:Proprietary
 
 #### Gitfox
 
 Platforms:MacPrice:€39,99/user annually / €79,99 (Free 30-day trial)License:Proprietary
-
 - git-colaPlatforms:Linux, Mac, WindowsPrice:FreeLicense:GNU GPL
 
 #### git-cola
@@ -1207,31 +1051,26 @@ Platforms:MacPrice:€39,99/user annually / €79,99 (Free 30-day trial)License:
 #### GitUI
 
 Platforms:Linux, Mac, WindowsPrice:Free, but donations welcomeLicense:MIT
-
 - giggle (no longer under active development)Platforms:LinuxPrice:FreeLicense:GNU GPL
 
 #### giggle (no longer under active development)
 
 Platforms:LinuxPrice:FreeLicense:GNU GPL
-
 - Aurees (no longer under active development)Platforms:Linux, Mac, WindowsPrice:FreeLicense:Proprietary
 
 #### Aurees (no longer under active development)
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:Proprietary
-
 - MeldPlatforms:Linux, WindowsPrice:FreeLicense:GPLv2 or later
 
 #### Meld
 
 Platforms:Linux, WindowsPrice:FreeLicense:GPLv2 or later
-
 - SnailGitPlatforms:MacPrice:Free (limited) / $9.99License:Proprietary
 
 #### SnailGit
 
 Platforms:MacPrice:Free (limited) / $9.99License:Proprietary
-
 - RepoZPlatforms:Mac, WindowsPrice:FreeLicense:MIT
 
 #### RepoZ
@@ -1241,13 +1080,11 @@ Platforms:MacPrice:Free (limited) / $9.99License:Proprietary
 #### Cong
 
 Platforms:WindowsPrice:FreeLicense:Proprietary
-
 - GitDrivePlatforms:iOSPrice:Free / $6.99License:Proprietary
 
 #### GitDrive
 
 Platforms:iOSPrice:Free / $6.99License:Proprietary
-
 - GitFiendPlatforms:Linux, Mac, WindowsPrice:FreeLicense:Proprietary
 
 #### GitFiend
@@ -1257,25 +1094,21 @@ Platforms:iOSPrice:Free / $6.99License:Proprietary
 #### GitAtomic
 
 Platforms:WindowsPrice:$17.99+/user annually (Free 30-day trial)License:Proprietary
-
 - NitroGitPlatforms:WindowsPrice:Free for non-commercial use / 20€/userLicense:Proprietary
 
 #### NitroGit
 
 Platforms:WindowsPrice:Free for non-commercial use / 20€/userLicense:Proprietary
-
 - GitFinderPlatforms:MacPrice:Free (limited) / $29.95 (Free 30-day trial)License:Proprietary
 
 #### GitFinder
 
 Platforms:MacPrice:Free (limited) / $29.95 (Free 30-day trial)License:Proprietary
-
 - VershdPlatforms:Linux, Mac, WindowsPrice:Free for non-commercial use / $37/user annuallyLicense:Proprietary
 
 #### Vershd
 
 Platforms:Linux, Mac, WindowsPrice:Free for non-commercial use / $37/user annuallyLicense:Proprietary
-
 - GitVinePlatforms:Linux, Mac, WindowsPrice:FreeLicense:Proprietary
 
 #### GitVine
@@ -1285,7 +1118,6 @@ Platforms:Linux, Mac, WindowsPrice:Free for non-commercial use / $37/user annual
 #### PolyGit
 
 Platforms:iOSPrice:Free (limited) / $11.99/year / $39.99License:Proprietary
-
 - GitguiPlatforms:Linux, Mac, WindowsPrice:FreeLicense:MIT
 
 #### Gitgui
@@ -1303,19 +1135,16 @@ Platforms:iOSPrice:Free (limited) / $11.99/year / $39.99License:Proprietary
 #### GitViewer
 
 Platforms:iOS, MacPrice:Free / $6.99 (Free 7-day trial)License:Proprietary
-
 - CommandGitPlatforms:WindowsPrice:$5.99/MO (Free 14-day trial)License:Proprietary
 
 #### CommandGit
 
 Platforms:WindowsPrice:$5.99/MO (Free 14-day trial)License:Proprietary
-
 - gitonicPlatforms:Linux, Mac, WindowsPrice:FreeLicense:AGPL-3.0-or-later
 
 #### gitonic
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:AGPL-3.0-or-later
-
 - GitnuroPlatforms:Linux, Mac, WindowsPrice:FreeLicense:GNU GPL
 
 #### Gitnuro
@@ -1333,7 +1162,6 @@ Platforms:Linux, Mac, WindowsPrice:FreeLicense:AGPL-3.0-or-later
 #### GitKraken CLI
 
 Platforms:Linux, Mac, WindowsPrice:Free / $48.00+/user annuallyLicense:Proprietary
-
 - SourceGitPlatforms:Linux, Mac, WindowsPrice:FreeLicense:MIT
 
 #### SourceGit
@@ -1343,34 +1171,25 @@ Platforms:Linux, Mac, WindowsPrice:Free / $48.00+/user annuallyLicense:Proprieta
 #### RelaGit
 
 Platforms:Linux, Mac, WindowsPrice:FreeLicense:LGPL-3.0-or-later
-
 - Puppy GitPlatforms:AndroidPrice:FreeLicense:GPLv3
 
 #### Puppy Git
 
 Platforms:AndroidPrice:FreeLicense:GPLv3
-
 - RetconPlatforms:MacPrice:$49.99/user annually (Free 14-day trial)License:Proprietary
 
 #### Retcon
 
 Platforms:MacPrice:$49.99/user annually (Free 14-day trial)License:Proprietary
-
 - ChangesPlatforms:MacPrice:FreeLicense:MIT
 
 #### Changes
 
 Platforms:MacPrice:FreeLicense:MIT
 There are other great GUI tools available as well. Have a look at the list ofinterfaces, frontends and toolsin the Git Wiki.
-
 ## Community - Git
-
-
 来源: https://git-scm.com/community
-
 # Community
-
-
 ## Mailing List
 
 General questions or comments for the Git community can be sent to the mailing list by using the email addressgit@vger.kernel.org.
@@ -1425,5 +1244,3 @@ There is a monthly community newsletter called"Git Rev News", withits archiveand
 
 TheDocumentation directoryin the Git source code has several files of interest to developers who are looking to help contribute. After reading thecoding guidelinesandcode of conduct, you can learnhow to submit patches. If you are just starting out, you can read theMy First Contribution tutorial. For those looking to get more deeply involved, there is ahowto for Git maintainers.
 TheGit Developer Pageshave aHacking Git pagewhich lists useful development resources. They also haveinformationfor people applying to work on Git as part of programs likeOutreachyor theGoogle Summer of Code.
-
-```
