@@ -3,10 +3,10 @@ id: skill-python
 title: Python Knowledge
 source: https://docs.python.org/3/tutorial/
 crawled: 2026-06-11
-pages: 15
+pages: 13
 
 # Python 知识库
-> 爬取来源: https://docs.python.org/3/tutorial/ | 15 页内容
+> 来源: https://docs.python.org/3/tutorial/ | 13 页
 
 ## The Python Tutorial — Python 3.14.6 documentation
 来源: https://docs.python.org/3/tutorial/
@@ -1591,10 +1591,643 @@ gh-143935: Fixed a bug in the folding of comments when flattening an email
 gh-143925: Reject control characters indata:URL media types.
 data:
 - gh-143919: Reject control characters inhttp.cookies.Morselfields and values.
+gh-1
+
 ... (缩略) ...
 
-tchStatements
+r more complicated tasks than adding two and two
+together.  For instance, we can write an initial sub-sequence of theFibonacci seriesas follows:
+>>># Fibonacci series:>>># the sum of two elements defines the next>>>a,b=0,1>>>whilea<10:...print(a)...a,b=b,a+b...0112358
+This example introduces several new features.
+- The first line contains amultiple assignment: the variablesaandbsimultaneously get the new values 0 and 1.  On the last line this is used again,
+demonstrating that the expressions on the right-hand side are all evaluated
+first before any of the assignments take place.  The right-hand side expressions
+are evaluated  from the left to the right.
+The first line contains amultiple assignment: the variablesaandbsimultaneously get the new values 0 and 1.  On the last line this is used again,
+- Thewhileloop executes as long as the condition (here:a<10)
+remains true.  In Python, like in C, any non-zero integer value is true; zero is
+false.  The condition may also be a string or list value, in fact any sequence;
+anything with a non-zero length is true, empty sequences are false.  The test
+used in the example is a simple comparison.  The standard comparison operators
+are written the same as in C:<(less than),>(greater than),==(equal to),<=(less than or equal to),>=(greater than or equal to)
+and!=(not equal to).
+Thewhileloop executes as long as the condition (here:a<10)
+while
+a<10
+- Thebodyof the loop isindented: indentation is Pythonâs way of grouping
+statements.  At the interactive prompt, you have to type a tab or space(s) for
+each indented line.  In practice you will prepare more complicated input
+for Python with a text editor; all decent text editors have an auto-indent
+facility.  When a compound statement is entered interactively, it must be
+followed by a blank line to indicate completion (since the parser cannot
+guess when you have typed the last line).  Note that each line within a basic
+block must be indented by the same amount.
+Thebodyof the loop isindented: indentation is Pythonâs way of grouping
+- Theprint()function writes the value of the argument(s) it is given.
+It differs from just writing the expression you want to write (as we did
+earlier in the calculator examples) in the way it handles multiple arguments,
+floating-point quantities, and strings.  Strings are printed without quotes,
+and a space is inserted between items, so you can format things nicely, like
+this:>>>i=256*256>>>print('The value of i is',i)The value of i is 65536The keyword argumentendcan be used to avoid the newline after the output,
+or end the output with a different string:>>>a,b=0,1>>>whilea<1000:...print(a,end=',')...a,b=b,a+b...0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+Theprint()function writes the value of the argument(s) it is given.
+this:
+print()
+>>>i=256*256>>>print('The value of i is',i)The value of i is 65536
+The keyword argumentendcan be used to avoid the newline after the output,
+or end the output with a different string:
+>>>a,b=0,1>>>whilea<1000:...print(a,end=',')...a,b=b,a+b...0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+Footnotes
 
+### Table of Contents
+#### Previous topic
+
+2.Using the Python Interpreter
+
+#### Next topic
+
+4.More Control Flow Tools
+
+### This page
+### Navigation
+
+- The Python Tutorial»
+- 3.An Informal Introduction to Python
+## 4. More Control Flow Tools — Python 3.14.6 documentation
+来源: https://docs.python.org/3/tutorial/controlflow.html
+### Navigation
+
+- 4.More Control Flow Tools
+
+# 4.More Control Flow ToolsÂ¶
+
+As well as thewhilestatement just introduced, Python uses a few more
+that we will encounter in this chapter.
+
+## 4.1.ifStatementsÂ¶
+
+Perhaps the most well-known statement type is theifstatement.  For
+example:
+>>>x=int(input("Please enter an integer: "))Please enter an integer: 42>>>ifx<0:...x=0...print('Negative changed to zero')...elifx==0:...print('Zero')...elifx==1:...print('Single')...else:...print('More')...More
+There can be zero or moreelifparts, and theelsepart is
+optional.  The keyword âelifâ is short for âelse ifâ, and is useful
+to avoid excessive indentation.  Anifâ¦elifâ¦elifâ¦ sequence is a substitute for theswitchorcasestatements found in other languages.
+elif
+switch
+case
+If youâre comparing the same value to several constants, or checking for specific types or
+attributes, you may also find thematchstatement useful. For more
+details seematch Statements.
+
+## 4.2.forStatementsÂ¶
+
+Theforstatement in Python differs a bit from what you may be used
+to in C or Pascal.  Rather than always iterating over an arithmetic progression
+of numbers (like in Pascal), or giving the user the ability to define both the
+iteration step and halting condition (as C), Pythonâsforstatement
+iterates over the items of any sequence (a list or a string), in the order that
+they appear in the sequence.  For example (no pun intended):
+>>># Measure some strings:>>>words=['cat','window','defenestrate']>>>forwinwords:...print(w,len(w))...cat 3window 6defenestrate 12
+Code that modifies a collection while iterating over that same collection can
+be tricky to get right.  Instead, it is usually more straight-forward to loop
+over a copy of the collection or to create a new collection:
+# Create a sample collectionusers={'Hans':'active','ÃlÃ©onore':'inactive','æ¯å¤ªé':'active'}# Strategy:  Iterate over a copyforuser,statusinusers.copy().items():ifstatus=='inactive':delusers[user]# Strategy:  Create a new collectionactive_users={}foruser,statusinusers.items():ifstatus=='active':active_users[user]=status
+
+## 4.3.Therange()FunctionÂ¶
+
+If you do need to iterate over a sequence of numbers, the built-in functionrange()comes in handy.  It generates arithmetic progressions:
+>>>foriinrange(5):...print(i)...01234
+The given end point is never part of the generated sequence;range(10)generates
+10 values, the legal indices for items of a sequence of length 10.  It
+is possible to let the range start at another number, or to specify a different
+increment (even negative; sometimes this is called the âstepâ):
+range(10)
+>>>list(range(5,10))[5, 6, 7, 8, 9]>>>list(range(0,10,3))[0, 3, 6, 9]>>>list(range(-10,-100,-30))[-10, -40, -70]
+To iterate over the indices of a sequence, you can combinerange()andlen()as follows:
+len()
+>>>a=['Mary','had','a','little','lamb']>>>foriinrange(len(a)):...print(i,a[i])...0 Mary1 had2 a3 little4 lamb
+In most such cases, however, it is convenient to use theenumerate()function, seeLooping Techniques.
+enumerate()
+A strange thing happens if you just print a range:
+>>>range(10)range(0, 10)
+In many ways the object returned byrange()behaves as if it is a list,
+but in fact it isnât. It is an object which returns the successive items of
+the desired sequence when you iterate over it, but it doesnât really make
+the list, thus saving space.
+We say such an object isiterable, that is, suitable as a target for
+functions and constructs that expect something from which they can
+obtain successive items until the supply is exhausted.  We have seen that
+theforstatement is such a construct, while an example of a function
+that takes an iterable issum():
+sum()
+>>>sum(range(4))# 0 + 1 + 2 + 36
+Later we will see more functions that return iterables and take iterables as
+arguments.  In chapterData Structures, we will discusslist()in more
+detail.
+
+## 4.4.breakandcontinueStatementsÂ¶
+
+Thebreakstatement breaks out of the innermost enclosingfororwhileloop:
+>>>forninrange(2,10):...forxinrange(2,n):...ifn%x==0:...print(f"{n}equals{x}*{n//x}")...break...4 equals 2 * 26 equals 2 * 38 equals 2 * 49 equals 3 * 3
+Thecontinuestatement continues with the next
+iteration of the loop:
+>>>fornuminrange(2,10):...ifnum%2==0:...print(f"Found an even number{num}")...continue...print(f"Found an odd number{num}")...Found an even number 2Found an odd number 3Found an even number 4Found an odd number 5Found an even number 6Found an odd number 7Found an even number 8Found an odd number 9
+
+## 4.5.elseClauses on LoopsÂ¶
+
+In afororwhileloop thebreakstatement
+may be paired with anelseclause.  If the loop finishes without
+executing thebreak, theelseclause executes.
+In aforloop, theelseclause is executed
+after the loop finishes its final iteration, that is, if no break occurred.
+In awhileloop, itâs executed after the loopâs condition becomes false.
+In either kind of loop, theelseclause isnotexecuted if the
+loop was terminated by abreak.  Of course, other ways of ending the
+loop early, such as areturnor a raised exception, will also skip
+execution of theelseclause.
+return
+This is exemplified in the followingforloop,
+which searches for prime numbers:
+>>>forninrange(2,10):...forxinrange(2,n):...ifn%x==0:...print(n,'equals',x,'*',n//x)...break...else:...# loop fell through without finding a factor...print(n,'is a prime number')...2 is a prime number3 is a prime number4 equals 2 * 25 is a prime number6 equals 2 * 37 is a prime number8 equals 2 * 49 equals 3 * 3
+(Yes, this is the correct code.  Look closely: theelseclause belongs to
+theforloop,nottheifstatement.)
+One way to think of the else clause is to imagine it paired with theifinside the loop.  As the loop executes, it will run a sequence like
+if/if/if/else. Theifis inside the loop, encountered a number of times. If
+the condition is ever true, abreakwill happen. If the condition is never
+true, theelseclause outside the loop will execute.
+When used with a loop, theelseclause has more in common with theelseclause of atrystatement than it does with that ofifstatements: atrystatementâselseclause runs when no exception
+occurs, and a loopâselseclause runs when nobreakoccurs. For more on
+thetrystatement and exceptions, seeHandling Exceptions.
+try
+
+## 4.6.passStatementsÂ¶
+
+Thepassstatement does nothing. It can be used when a statement is
+required syntactically but the program requires no action. For example:
+>>>whileTrue:...pass# Busy-wait for keyboard interrupt (Ctrl+C)...
+This is commonly used for creating minimal classes:
+>>>classMyEmptyClass:...pass...
+Another placepasscan be used is as a place-holder for a function or
+conditional body when you are working on new code, allowing you to keep thinking
+at a more abstract level.  Thepassis silently ignored:
+>>>definitlog(*args):...pass# Remember to implement this!...
+For this last case, many people use the ellipsis literal...instead ofpass. This use has no special meaning to Python, and is not part of
+the language definition (you could use any constant expression here), but...is used conventionally as a placeholder body as well.
+SeeThe Ellipsis Object.
+
+## 4.7.matchStatementsÂ¶
+
+Amatchstatement takes an expression and compares its value to successive
+patterns given as one or more case blocks.  This is superficially
+similar to a switch statement in C, Java or JavaScript (and many
+other languages), but itâs more similar to pattern matching in
+languages like Rust or Haskell. Only the first pattern that matches
+gets executed and it can also extract components (sequence elements
+or object attributes) from the value into variables. If no case matches,
+none of the branches is executed.
+The simplest form compares a subject value against one or more literals:
+defhttp_error(status):matchstatus:case400:return"Bad request"case404:return"Not found"case418:return"I'm a teapot"case_:return"Something's wrong with the internet"
+Note the last block: the âvariable nameâ_acts as awildcardand
+never fails to match.
+You can combine several literals in a single pattern using|(âorâ):
+case401|403|404:return"Not allowed"
+Patterns can look like unpacking assignments, and can be used to bind
+variables:
+# point is an (x, y) tuplematchpoint:case(0,0):print("Origin")case(0,y):print(f"Y={y}")case(x,0):print(f"X={x}")case(x,y):print(f"X={x}, Y={y}")case_:raiseValueError("Not a point")
+Study that one carefully!  The first pattern has two literals, and can
+be thought of as an extension of the literal pattern shown above.  But
+the next two patterns combine a literal and a variable, and the
+variablebindsa value from the subject (point).  The fourth
+pattern captures two values, which makes it conceptually similar to
+the unpacking assignment(x,y)=point.
+point
+(x,y)=point
+If you are using classes to structure your data
+you can use the class name followed by an argument list resembling a
+constructor, but with the ability to capture attributes into variables:
+classPoint:def__init__(self,x,y):self.x=xself.y=ydefwhere_is(point):matchpoint:casePoint(x=0,y=0):print("Origin")casePoint(x=0,y=y):print(f"Y={y}")casePoint(x=x,y=0):print(f"X={x}")casePoint():print("Somewhere else")case_:print("Not a point")
+You can use positional parameters with some builtin classes that provide an
+ordering for their attributes (e.g. dataclasses). You can also define a specific
+position for attributes in patterns by setting the__match_args__special
+attribute in your classes. If itâs set to (âxâ, âyâ), the following patterns are all
+equivalent (and all bind theyattribute to thevarvariable):
+__match_args__
+var
+Point(1,var)Point(1,y=var)Point(x=1,y=var)Point(y=var,x=1)
+A recommended way to read patterns is to look at them as an extended form of what you
+would put on the left of an assignment, to understand which variables would be set to
+what.
+Only the standalone names (likevarabove) are assigned to by a match statement.
+Dotted names (likefoo.bar), attribute names (thex=andy=above) or class names
+(recognized by the â(â¦)â next to them likePointabove) are never assigned to.
+foo.bar
+Patterns can be arbitrarily nested.  For example, if we have a short
+list of Points, with__match_args__added, we could match it like this:
+classPoint:__match_args__=('x','y')def__init__(self,x,y):self.x=xself.y=ymatchpoints:case[]:print("No points")case[Point(0,0)]:print("The origin")case[Point(x,y)]:print(f"Single point{x},{y}")case[Point(0,y1),Point(0,y2)]:print(f"Two on the Y axis at{y1},{y2}")case_:print("Something else")
+We can add anifclause to a pattern, known as a âguardâ.  If the
+guard is false,matchgoes on to try the next case block.  Note
+that value capture happens before the guard is evaluated:
+matchpoint:casePoint(x,y)ifx==y:print(f"Y=X at{x}")casePoint(x,y):print(f"Not on the diagonal")
+Several other key features of this statement:
+- Like unpacking assignments, tuple and list patterns have exactly the
+same meaning and actually match arbitrary sequences.  An important
+exception is that they donât match iterators or strings.
+Like unpacking assignments, tuple and list patterns have exactly the
+- Sequence patterns support extended unpacking:[x,y,*rest]and(x,y,*rest)work similar to unpacking assignments.  The
+name after*may also be_, so(x,y,*_)matches a sequence
+of at least two items without binding the remaining items.
+Sequence patterns support extended unpacking:[x,y,*rest]and(x,y,*rest)work similar to unpacking assignments.  The
+[x,y,*rest]
+(x,y,*rest)
+(x,y,*_)
+- Mapping patterns:{"bandwidth":b,"latency":l}captures the"bandwidth"and"latency"values from a dictionary.  Unlike sequence
+patterns, extra keys are ignored.  An unpacking like**restis also
+supported.  (But**_would be redundant, so it is not allowed.)
+Mapping patterns:{"bandwidth":b,"latency":l}captures the"bandwidth"and"latency"values from a dictionary.  Unlike sequence
+{"bandwidth":b,"latency":l}
+"bandwidth"
+"latency"
+**rest
+- Subpatterns may be captured using theaskeyword:case(Point(x1,y1),Point(x2,y2)asp2):...will capture the second element of the input asp2(as long as the input is
+a sequence of two points)
+Subpatterns may be captured using theaskeyword:
+case(Point(x1,y1),Point(x2,y2)asp2):...
+will capture the second element of the input asp2(as long as the input is
+- Most literals are compared by equality, however the singletonsTrue,FalseandNoneare compared by identity.
+Most literals are compared by equality, however the singletonsTrue,FalseandNoneare compared by identity.
+False
+- Patterns may use named constants.  These must be dotted names
+to prevent them from being interpreted as capture variables:fromenumimportEnumclassColor(Enum):RED='red'GREEN='green'BLUE='blue'color=Color(input("Enter your choice of 'red', 'blue' or 'green': "))matchcolor:caseColor.RED:print("I see red!")caseColor.GREEN:print("Grass is green")caseColor.BLUE:print("I'm feeling the blues :(")
+Patterns may use named constants.  These must be dotted names
+to prevent them from being interpreted as capture variables:
+fromenumimportEnumclassColor(Enum):RED='red'GREEN='green'BLUE='blue'color=Color(input("Enter your choice of 'red', 'blue' or 'green': "))matchcolor:caseColor.RED:print("I see red!")caseColor.GREEN:print("Grass is green")caseColor.BLUE:print("I'm feeling the blues :(")
+For a more detailed explanation and additional examples, you can look intoPEP 636which is written in a tutorial format.
+
+## 4.8.Defining FunctionsÂ¶
+
+We can create a function that writes the Fibonacci series to an arbitrary
+boundary:
+>>>deffib(n):# write Fibonacci series less than n..."""Print a Fibonacci series less than n."""...a,b=0,1...whilea<n:...print(a,end=' ')...a,b=b,a+b...print()...>>># Now call the function we just defined:>>>fib(2000)0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597
+The keyworddefintroduces a functiondefinition.  It must be
+followed by the function name and the parenthesized list of formal parameters.
+The statements that form the body of the function start at the next line, and
+must be indented.
+def
+The first statement of the function body can optionally be a string literal;
+this string literal is the functionâs documentation string, ordocstring.
+(More about docstrings can be found in the sectionDocumentation Strings.)
+There are tools which use docstrings to automatically produce online or printed
+documentation, or to let the user interactively browse through code; itâs good
+practice to include docstrings in code that you write, so make a habit of it.
+Theexecutionof a function introduces a new symbol table used for the local
+variables of the function.  More precisely, all variable assignments in a
+function store the value in the local symbol table; whereas variable references
+first look in the local symbol table, then in the local symbol tables of
+enclosing functions, then in the global symbol table, and finally in the table
+of built-in names. Thus, global variables and variables of enclosing functions
+cannot be directly assigned a value within a function (unless, for global
+variables, named in aglobalstatement, or, for variables of enclosing
+functions, named in anonlocalstatement), although they may be
+referenced.
+global
+nonlocal
+The actual parameters (arguments) to a function call are introduced in the local
+symbol table of the called function when it is called; thus, arguments are
+passed usingcall by value(where thevalueis always an objectreference,
+not the value of the object).[1]When a function calls another function,
+or calls itself recursively, a new
+local symbol table is created for that call.
+A function definition associates the function name with the function object in
+the current symbol table.  The interpreter recognizes the object pointed to by
+that name as a user-defined function.  Other names can also point to that same
+function object and can also be used to access the function:
+>>>fib<function fib at 10042ed0>>>>f=fib>>>f(100)0 1 1 2 3 5 8 13 21 34 55 89
+Coming from other languages, you might object thatfibis not a function but
+a procedure since it doesnât return a value.  In fact, even functions without areturnstatement do return a value, albeit a rather boring one.  This
+value is calledNone(itâs a built-in name).  Writing the valueNoneis
+normally suppressed by the interpreter if it would be the only value written.
+You can see it if you really want to usingprint():
+fib
+>>>fib(0)>>>print(fib(0))None
+It is simple to write a function that returns a list of the numbers of the
+Fibonacci series, instead of printing it:
+>>>deffib2(n):# return Fibonacci series up to n..."""Return a list containing the Fibonacci series up to n."""...result=[]...a,b=0,1...whilea<n:...result.append(a)# see below...a,b=b,a+b...returnresult...>>>f100=fib2(100)# call it>>>f100# write the result[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+This example, as usual, demonstrates some new Python features:
+- Thereturnstatement returns with a value from a function.returnwithout an expression argument returnsNone. Falling off
+the end of a function also returnsNone.
+Thereturnstatement returns with a value from a function.returnwithout an expression argument returnsNone. Falling off
+- The statementresult.append(a)calls amethodof the list objectresult.  A method is a function that âbelongsâ to an object and is namedobj.methodname, whereobjis some object (this may be an expression),
+andmethodnameis the name of a method that is defined by the objectâs type.
+Different types define different methods.  Methods of different types may have
+the same name without causing ambiguity.  (It is possible to define your own
+object types and methods, usingclasses, seeClasses)
+The methodappend()shown in the example is defined for list objects; it
+adds a new element at the end of the list.  In this example it is equivalent toresult=result+[a], but more efficient.
+The statementresult.append(a)calls amethodof the list objectresult.  A method is a function that âbelongsâ to an object and is namedobj.methodname, whereobjis some object (this may be an expression),
+result.append(a)
+result
+obj.methodname
+obj
+append()
+result=result+[a]
+
+## 4.9.More on Defining FunctionsÂ¶
+
+It is also possible to define functions with a variable number of arguments.
+There are three forms, which can be combined.
+
+### 4.9.1.Default Argument ValuesÂ¶
+
+The most useful form is to specify a default value for one or more arguments.
+This creates a function that can be called with fewer arguments than it is
+defined to allow.  For example:
+defask_ok(prompt,retries=4,reminder='Please try again!'):whileTrue:reply=input(prompt)ifreplyin{'y','ye','yes'}:returnTrueifreplyin{'n','no','nop','nope'}:returnFalseretries=retries-1ifretries<0:raiseValueError('invalid user response')print(reminder)
+This function can be called in several ways:
+- giving only the mandatory argument:ask_ok('Doyoureallywanttoquit?')
+giving only the mandatory argument:ask_ok('Doyoureallywanttoquit?')
+ask_ok('Doyoureallywanttoquit?')
+- giving one of the optional arguments:ask_ok('OKtooverwritethefile?',2)
+giving one of the optional arguments:ask_ok('OKtooverwritethefile?',2)
+ask_ok('OKtooverwritethefile?',2)
+- or even giving all arguments:ask_ok('OKtooverwritethefile?',2,'Comeon,onlyyesorno!')
+or even giving all arguments:ask_ok('OKtooverwritethefile?',2,'Comeon,onlyyesorno!')
+ask_ok('OKtooverwritethefile?',2,'Comeon,onlyyesorno!')
+This example also introduces theinkeyword. This tests whether or
+not a sequence contains a certain value.
+The default values are evaluated at the point of function definition in thedefiningscope, so that
+i=5deff(arg=i):print(arg)i=6f()
+will print5.
+Important warning:The default value is evaluated only once. This makes a
+difference when the default is a mutable object such as a list, dictionary, or
+instances of most classes.  For example, the following function accumulates the
+arguments passed to it on subsequent calls:
+deff(a,L=[]):L.append(a)returnLprint(f(1))print(f(2))print(f(3))
+This will print
+[1][1,2][1,2,3]
+If you donât want the default to be shared between subsequent calls, you can
+write the function like this instead:
+deff(a,L=None):ifLisNone:L=[]L.append(a)returnL
+
+### 4.9.2.Keyword ArgumentsÂ¶
+
+Functions can also be called usingkeyword argumentsof the formkwarg=value.  For instance, the following function:
+kwarg=value
+defparrot(voltage,state='a stiff',action='voom',type='Norwegian Blue'):print("-- This parrot wouldn't",action,end=' ')print("if you put",voltage,"volts through it.")print("-- Lovely plumage, the",type)print("-- It's",state,"!")
+accepts one required argument (voltage) and three optional arguments
+(state,action, andtype).  This function can be called in any
+of the following ways:
+voltage
+state
+action
+type
+parrot(1000)# 1 positional argumentparrot(voltage=1000)# 1 keyword argumentparrot(voltage=1000000,action='VOOOOOM')# 2 keyword argumentsparrot(action='VOOOOOM',voltage=1000000)# 2 keyword argumentsparrot('a million','bereft of life','jump')# 3 positional argumentsparrot('a thousand',state='pushing up the daisies')# 1 positional, 1 keyword
+but all the following calls would be invalid:
+parrot()# required argument missingparrot(voltage=5.0,'dead')# non-keyword argument after a keyword argumentparrot(110,voltage=220)# duplicate value for the same argumentparrot(actor='John Cleese')# unknown keyword argument
+In a function call, keyword arguments must follow positional arguments.
+All the keyword arguments passed must match one of the arguments
+accepted by the function (e.g.actoris not a valid argument for theparrotfunction), and their order is not important.  This also includes
+non-optional arguments (e.g.parrot(voltage=1000)is valid too).
+No argument may receive a value more than once.
+Hereâs an example that fails due to this restriction:
+actor
+parrot
+parrot(voltage=1000)
+>>>deffunction(a):...pass...>>>function(0,a=0)Traceback (most recent call last):File"<stdin>", line1, in<module>TypeError:function() got multiple values for argument 'a'
+When a final formal parameter of the form**nameis present, it receives a
+dictionary (seeMapping Types â dict) containing all keyword arguments except for
+those corresponding to a formal parameter.  This may be combined with a formal
+parameter of the form*name(described in the next subsection) which
+receives atuplecontaining the positional
+arguments beyond the formal parameter list.  (*namemust occur
+before**name.) For example, if we define a function like this:
+**name
+*name
+defcheeseshop(kind,*arguments,**keywords):print("-- Do you have any",kind,"?")print("-- I'm sorry, we're all out of",kind)forarginarguments:print(arg)print("-"*40)forkwinkeywords:print(kw,":",keywords[kw])
+It could be called like this:
+cheeseshop("Limburger","It's very runny, sir.","It's really very, VERY runny, sir.",shopkeeper="Michael Palin",client="John Cleese",sketch="Cheese Shop Sketch")
+and of course it would print:
+-- Do you have any Limburger ?
+-- I'm sorry, we're all out of Limburger
+It's very runny, sir.
+It's really very, VERY runny, sir.
+----------------------------------------
+shopkeeper : Michael Palin
+client : John Cleese
+sketch : Cheese Shop Sketch
+Note that the order in which the keyword arguments are printed is guaranteed
+to match the order in which they were provided in the function call.
+
+### 4.9.3.Special parametersÂ¶
+
+By default, arguments may be passed to a Python function either by position
+or explicitly by keyword. For readability and performance, it makes sense to
+restrict the way arguments can be passed so that a developer need only look
+at the function definition to determine if items are passed by position, by
+position or keyword, or by keyword.
+A function definition may look like:
+def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+      -----------    ----------     ----------
+        |             |                  |
+        |        Positional or keyword   |
+        |                                - Keyword only
+         -- Positional only
+where/and*are optional. If used, these symbols indicate the kind of
+parameter by how the arguments may be passed to the function:
+positional-only, positional-or-keyword, and keyword-only. Keyword parameters
+are also referred to as named parameters.
+
+#### 4.9.3.1.Positional-or-Keyword ArgumentsÂ¶
+
+If/and*are not present in the function definition, arguments may
+be passed to a function by position or by keyword.
+
+#### 4.9.3.2.Positional-Only ParametersÂ¶
+
+Looking at this in a bit more detail, it is possible to mark certain parameters
+aspositional-only. Ifpositional-only, the parametersâ order matters, and
+the parameters cannot be passed by keyword. Positional-only parameters are
+placed before a/(forward-slash). The/is used to logically
+separate the positional-only parameters from the rest of the parameters.
+If there is no/in the function definition, there are no positional-only
+parameters.
+Parameters following the/may bepositional-or-keywordorkeyword-only.
+
+#### 4.9.3.3.Keyword-Only ArgumentsÂ¶
+
+To mark parameters askeyword-only, indicating the parameters must be passed
+by keyword argument, place an*in the arguments list just before the firstkeyword-onlyparameter.
+
+#### 4.9.3.4.Function ExamplesÂ¶
+
+Consider the following example function definitions paying close attention to the
+markers/and*:
+>>>defstandard_arg(arg):...print(arg)...>>>defpos_only_arg(arg,/):...print(arg)...>>>defkwd_only_arg(*,arg):...print(arg)...>>>defcombined_example(pos_only,/,standard,*,kwd_only):...print(pos_only,standard,kwd_only)
+The first function definition,standard_arg, the most familiar form,
+places no restrictions on the calling convention and arguments may be
+passed by position or keyword:
+standard_arg
+>>>standard_arg(2)2>>>standard_arg(arg=2)2
+The second functionpos_only_argis restricted to only use positional
+parameters as there is a/in the function definition:
+pos_only_arg
+>>>pos_only_arg(1)1>>>pos_only_arg(arg=1)Traceback (most recent call last):File"<stdin>", line1, in<module>TypeError:pos_only_arg() got some positional-only arguments passed as keyword arguments: 'arg'
+The third functionkwd_only_argonly allows keyword arguments as indicated
+by a*in the function definition:
+kwd_only_arg
+>>>kwd_only_arg(3)Traceback (most recent call last):File"<stdin>", line1, in<module>TypeError:kwd_only_arg() takes 0 positional arguments but 1 was given>>>kwd_only_arg(arg=3)3
+And the last uses all three calling conventions in the same function
+definition:
+>>>combined_example(1,2,3)Traceback (most recent call last):File"<stdin>", line1, in<module>TypeError:combined_example() takes 2 positional arguments but 3 were given>>>combined_example(1,2,kwd_only=3)1 2 3>>>combined_example(1,standard=2,kwd_only=3)1 2 3>>>combined_example(pos_only=1,standard=2,kwd_only=3)Traceback (most recent call last):File"<stdin>", line1, in<module>TypeError:combined_example() got some positional-only arguments passed as keyword arguments: 'pos_only'
+Finally, consider this function definition which has a potential collision between the positional argumentnameand**kwdswhich hasnameas a key:
+**kwds
+deffoo(name,**kwds):return'name'inkwds
+There is no possible call that will make it returnTrueas the keyword'name'will always bind to the first parameter. For example:
+'name'
+>>>foo(1,**{'name':2})Traceback (most recent call last):File"<stdin>", line1, in<module>TypeError:foo() got multiple values for argument 'name'>>>
+But using/(positional only arguments), it is possible since it allowsnameas a positional argument and'name'as a key in the keyword arguments:
+>>>deffoo(name,/,**kwds):...return'name'inkwds...>>>foo(1,**{'name':2})True
+In other words, the names of positional-only parameters can be used in**kwdswithout ambiguity.
+
+#### 4.9.3.5.RecapÂ¶
+
+The use case will determine which parameters to use in the function definition:
+deff(pos1,pos2,/,pos_or_kwd,*,kwd1,kwd2):
+As guidance:
+- Use positional-only if you want the name of the parameters to not be
+available to the user. This is useful when parameter names have no real
+meaning, if you want to enforce the order of the arguments when the function
+is called or if you need to take some positional parameters and arbitrary
+keywords.
+Use positional-only if you want the name of the parameters to not be
+- Use keyword-only when names have meaning and the function definition is
+more understandable by being explicit with names or you want to prevent
+users relying on the position of the argument being passed.
+Use keyword-only when names have meaning and the function definition is
+- For an API, use positional-only to prevent breaking API changes
+if the parameterâs name is modified in the future.
+For an API, use positional-only to prevent breaking API changes
+
+### 4.9.4.Arbitrary Argument ListsÂ¶
+
+Finally, the least frequently used option is to specify that a function can be
+called with an arbitrary number of arguments.  These arguments will be wrapped
+up in a tuple (seeTuples and Sequences).  Before the variable number of arguments,
+zero or more normal arguments may occur.
+defwrite_multiple_items(file,separator,*args):file.write(separator.join(args))
+Normally, thesevariadicarguments will be last in the list of formal
+parameters, because they scoop up all remaining input arguments that are
+passed to the function. Any formal parameters which occur after the*argsparameter are âkeyword-onlyâ arguments, meaning that they can only be used as
+keywords rather than positional arguments.
+*args
+>>>defconcat(*args,sep="/"):...returnsep.join(args)...>>>concat("earth","mars","venus")'earth/mars/venus'>>>concat("earth","mars","venus",sep=".")'earth.mars.venus'
+
+### 4.9.5.Unpacking Argument ListsÂ¶
+
+The reverse situation occurs when the arguments are already in a list or tuple
+but need to be unpacked for a function call requiring separate positional
+arguments.  For instance, the built-inrange()function expects separatestartandstoparguments.  If they are not available separately, write the
+function call with the*-operator to unpack the arguments out of a list
+or tuple:
+>>>list(range(3,6))# normal call with separate arguments[3, 4, 5]>>>args=[3,6]>>>list(range(*args))# call with arguments unpacked from a list[3, 4, 5]
+In the same fashion, dictionaries can deliver keyword arguments with the**-operator:
+>>>defparrot(voltage,state='a stiff',action='voom'):...print("-- This parrot wouldn't",action,end=' ')...print("if you put",voltage,"volts through it.",end=' ')...print("E's",state,"!")...>>>d={"voltage":"four million","state":"bleedin' demised","action":"VOOM"}>>>parrot(**d)-- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+
+### 4.9.6.Lambda ExpressionsÂ¶
+
+Small anonymous functions can be created with thelambdakeyword.
+This function returns the sum of its two arguments:lambdaa,b:a+b.
+Lambda functions can be used wherever function objects are required.  They are
+syntactically restricted to a single expression.  Semantically, they are just
+syntactic sugar for a normal function definition.  Like nested function
+definitions, lambda functions can reference variables from the containing
+scope:
+lambdaa,b:a+b
+>>>defmake_incrementor(n):...returnlambdax:x+n...>>>f=make_incrementor(42)>>>f(0)42>>>f(1)43
+The above example uses a lambda expression to return a function.  Another use
+is to pass a small function as an argument.  For instance,list.sort()takes a sorting key functionkeywhich can be a lambda function:
+list.sort()
+>>>pairs=[(1,'one'),(2,'two'),(3,'three'),(4,'four')]>>>pairs.sort(key=lambdapair:pair[1])>>>pairs[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+
+### 4.9.7.Documentation StringsÂ¶
+
+Here are some conventions about the content and formatting of documentation
+strings.
+The first line should always be a short, concise summary of the objectâs
+purpose.  For brevity, it should not explicitly state the objectâs name or type,
+since these are available by other means (except if the name happens to be a
+verb describing a functionâs operation).  This line should begin with a capital
+letter and end with a period.
+If there are more lines in the documentation string, the second line should be
+blank, visually separating the summary from the rest of the description.  The
+following lines should be one or more paragraphs describing the objectâs calling
+conventions, its side effects, etc.
+The Python parser strips indentation from multi-line string literals when they
+serve as module, class, or function docstrings.
+Here is an example of a multi-line docstring:
+>>>defmy_function():..."""Do nothing, but document it.......No, really, it doesn't do anything:......>>> my_function()...>>>..."""...pass...>>>print(my_function.__doc__)Do nothing, but document it.No, really, it doesn't do anything:>>> my_function()>>>
+
+### 4.9.8.Function AnnotationsÂ¶
+
+Function annotationsare completely optional metadata
+information about the types used by user-defined functions (seePEP 3107andPEP 484for more information).
+Annotationsare stored in the__annotations__attribute of the function as a dictionary and have no effect on any other part of the
+function.  Parameter annotations are defined by a colon after the parameter name, followed
+by an expression evaluating to the value of the annotation.  Return annotations are
+defined by a literal->, followed by an expression, between the parameter
+list and the colon denoting the end of thedefstatement.  The
+following example has a required argument, an optional argument, and the return
+value annotated:
+__annotations__
+>>>deff(ham:str,eggs:str='eggs')->str:...print("Annotations:",f.__annotations__)...print("Arguments:",ham,eggs)...returnham+' and '+eggs...>>>f('spam')Annotations: {'ham': <class 'str'>, 'return': <class 'str'>, 'eggs': <class 'str'>}Arguments: spam eggs'spam and eggs'
+
+## 4.10.Intermezzo: Coding StyleÂ¶
+
+Now that you are about to write longer, more complex pieces of Python, it is a
+good time to talk aboutcoding style.  Most languages can be written (or more
+concisely,formatted) in different styles; some are more readable than others.
+Making it easy for others to read your code is always a good idea, and adopting
+a nice coding style helps tremendously for that.
+For Python,PEP 8has emerged as the style guide that most projects adhere to;
+it promotes a very readable and eye-pleasing coding style.  Every Python
+developer should read it at some point; here are the most important points
+extracted for you:
+- Use 4-space indentation, and no tabs.4 spaces are a good compromise between small indentation (allows greater
+nesting depth) and large indentation (easier to read).  Tabs introduce
+confusion, and are best left out.
+Use 4-space indentation, and no tabs.
+4 spaces are a good compromise between small indentation (allows greater
+- Wrap lines so that they donât exceed 79 characters.This helps users with small displays and makes it possible to have several
+code files side-by-side on larger displays.
+Wrap lines so that they donât exceed 79 characters.
+This helps users with small displays and makes it possible to have several
+- Use blank lines to separate functions and classes, and larger blocks of
+code inside functions.
+Use blank lines to separate functions and classes, and larger blocks of
+- When possible, put comments on a line of their own.
+When possible, put comments on a line of their own.
+- Use docstrings.
+Use docstrings.
+- Use spaces around operators and after commas, but not directly inside
+bracketing constructs:a=f(1,2)+g(3,4).
+Use spaces around operators and after commas, but not directly inside
+a=f(1,2)+g(3,4)
+- Name your classes and functions consistently; the convention is to useUpperCamelCasefor classes andlowercase_with_underscoresfor functions
+and methods.  Always useselfas the name for the first method argument
+(seeA First Look at Classesfor more on classes and methods).
+Name your classes and functions consistently; the convention is to useUpperCamelCasefor classes andlowercase_with_underscoresfor functions
+UpperCamelCase
+lowercase_with_underscores
+self
+- Donât use fancy encodings if your code is meant to be used in international
+environments.  Pythonâs default, UTF-8, or even plain ASCII work best in any
+case.
+Donât use fancy encodings if your code is meant to be used in international
+- Likewise, donât use non-ASCII characters in identifiers if there is only the
+slightest chance people speaking a different language will read or maintain
+the code.
+Likewise, donât use non-ASCII characters in identifiers if there is only the
+
+### Table of Contents
 #### Previous topic
 
 3.An Informal Introduction to Python
@@ -1605,9 +2238,6 @@ tchStatements
 
 ### This page
 ### Navigation
-
-- The Python Tutorial»
-- 4.More Control Flow Tools
 ## 5. Data Structures — Python 3.14.6 documentation
 来源: https://docs.python.org/3/tutorial/datastructures.html
 ### Navigation
@@ -1700,7 +2330,6 @@ The list methods make it very easy to use a list as a stack, where the last
 element added is the first element retrieved (âlast-in, first-outâ).  To add an
 item to the top of the stack, useappend().  To retrieve an item from the
 top of the stack, usepop()without an explicit index.  For example:
-append()
 pop()
 >>>stack=[3,4,5]>>>stack.append(6)>>>stack.append(7)>>>stack[3, 4, 5, 6, 7]>>>stack.pop()7>>>stack[3, 4, 5, 6]>>>stack.pop()6>>>stack.pop()5>>>stack[3, 4]
 
@@ -1890,7 +2519,6 @@ items()
 >>>knights={'gallahad':'the pure','robin':'the brave'}>>>fork,vinknights.items():...print(k,v)...gallahad the purerobin the brave
 When looping through a sequence, the position index and corresponding value can
 be retrieved at the same time using theenumerate()function.
-enumerate()
 >>>fori,vinenumerate(['tic','tac','toe']):...print(i,v)...0 tic1 tac2 toe
 To loop over two or more sequences at the same time, the entries can be paired
 with thezip()function.
@@ -1913,7 +2541,6 @@ however, it is often simpler and safer to create a new list instead.
 
 The conditions used inwhileandifstatements can contain any
 operators, not just comparisons.
-while
 The comparison operatorsinandnotinare membership tests that
 determine whether a value is in (or not in) a container.  The operatorsisandisnotcompare whether two objects are really the same object.  All
 comparison operators have the same priority, which is lower than that of all
@@ -1963,13 +2590,9 @@ provided that the objects have appropriate comparison methods.  For example,
 mixed numeric types are compared according to their numeric value, so 0 equals
 0.0, etc.  Otherwise, rather than providing an arbitrary ordering, the
 interpreter will raise aTypeErrorexception.
-Footnotes
 
 ### Table of Contents
 #### Previous topic
-
-4.More Control Flow Tools
-
 #### Next topic
 
 6.Modules
@@ -2051,7 +2674,6 @@ followingasis bound directly to the imported module.
 >>>importfiboasfib>>>fib.fib(500)0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
 This is effectively importing the module in the same way thatimportfibowill do, with the only difference of it being available asfib.
 importfibo
-fib
 It can also be used when utilisingfromwith similar effects:
 from
 >>>fromfiboimportfibasfibonacci>>>fibonacci(500)0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
@@ -2241,7 +2863,6 @@ set the__all__variable, described later.
 string
 __all__
 Users of the package can import individual modules from the package, for
-example:
 importsound.effects.echo
 This loads the submodulesound.effects.echo.  It must be referenced with
 its full name.
@@ -2352,602 +2973,6 @@ modules found in a package.
 #### Next topic
 
 7.Input and Output
-
-### This page
-### Navigation
-## 7. Input and Output — Python 3.14.6 documentation
-来源: https://docs.python.org/3/tutorial/inputoutput.html
-### Navigation
-
-- 7.Input and Output
-
-# 7.Input and OutputÂ¶
-
-There are several ways to present the output of a program; data can be printed
-in a human-readable form, or written to a file for future use. This chapter will
-discuss some of the possibilities.
-
-## 7.1.Fancier Output FormattingÂ¶
-
-So far weâve encountered two ways of writing values:expression statementsand
-theprint()function.  (A third way is using thewrite()method
-of file objects; the standard output file can be referenced assys.stdout.
-See the Library Reference for more information on this.)
-print()
-write()
-sys.stdout
-Often youâll want more control over the formatting of your output than simply
-printing space-separated values. There are several ways to format output.
-- To useformatted string literals, begin a string
-withforFbefore the opening quotation mark or triple quotation mark.
-Inside this string, you can write a Python expression between{and}characters that can refer to variables or literal values.>>>year=2016>>>event='Referendum'>>>f'Results of the{year}{event}''Results of the 2016 Referendum'
-To useformatted string literals, begin a string
-Inside this string, you can write a Python expression between{and}characters that can refer to variables or literal values.
->>>year=2016>>>event='Referendum'>>>f'Results of the{year}{event}''Results of the 2016 Referendum'
-- Thestr.format()method of strings requires more manual
-effort.  Youâll still use{and}to mark where a variable
-will be substituted and can provide detailed formatting directives,
-but youâll also need to provide the information to be formatted. In the following code
-block there are two examples of how to format variables:>>>yes_votes=42_572_654>>>total_votes=85_705_149>>>percentage=yes_votes/total_votes>>>'{:-9}YES votes{:2.2%}'.format(yes_votes,percentage)' 42572654 YES votes  49.67%'Notice how theyes_votesare padded with spaces and a negative sign only for negative numbers.
-The example also printspercentagemultiplied by 100, with 2 decimal
-places and followed by a percent sign (seeFormat specification mini-languagefor details).
-Thestr.format()method of strings requires more manual
-block there are two examples of how to format variables:
-str.format()
->>>yes_votes=42_572_654>>>total_votes=85_705_149>>>percentage=yes_votes/total_votes>>>'{:-9}YES votes{:2.2%}'.format(yes_votes,percentage)' 42572654 YES votes  49.67%'
-Notice how theyes_votesare padded with spaces and a negative sign only for negative numbers.
-yes_votes
-percentage
-- Finally, you can do all the string handling yourself by using string slicing and
-concatenation operations to create any layout you can imagine.  The
-string type has some methods that perform useful operations for padding
-strings to a given column width.
-Finally, you can do all the string handling yourself by using string slicing and
-When you donât need fancy output but just want a quick display of some
-variables for debugging purposes, you can convert any value to a string with
-therepr()orstr()functions.
-str()
-Thestr()function is meant to return representations of values which are
-fairly human-readable, whilerepr()is meant to generate representations
-which can be read by the interpreter (or will force aSyntaxErrorif
-there is no equivalent syntax).  For objects which donât have a particular
-representation for human consumption,str()will return the same value asrepr().  Many values, such as numbers or structures like lists and
-dictionaries, have the same representation using either function.  Strings, in
-particular, have two distinct representations.
-Some examples:
->>>s='Hello, world.'>>>str(s)'Hello, world.'>>>repr(s)"'Hello, world.'">>>str(1/7)'0.14285714285714285'>>>x=10*3.25>>>y=200*200>>>s='The value of x is '+repr(x)+', and y is '+repr(y)+'...'>>>print(s)The value of x is 32.5, and y is 40000...>>># The repr() of a string adds string quotes and backslashes:>>>hello='hello, world\n'>>>hellos=repr(hello)>>>print(hellos)'hello, world\n'>>># The argument to repr() may be any Python object:>>>repr((x,y,('spam','eggs')))"(32.5, 40000, ('spam', 'eggs'))"
-Thestringmodule contains support for a simple templating approach
-based upon regular expressions, viastring.Template.
-This offers yet another way to substitute values into strings,
-using placeholders like$xand replacing them with values from a dictionary.
-This syntax is easy to use, although it offers much less control for formatting.
-string.Template
-
-### 7.1.1.Formatted String LiteralsÂ¶
-
-Formatted string literals(also called f-strings for
-short) let you include the value of Python expressions inside a string by
-prefixing the string withforFand writing expressions as{expression}.
-{expression}
-An optional format specifier can follow the expression. This allows greater
-control over how the value is formatted. The following example rounds pi to
-three places after the decimal:
->>>importmath>>>print(f'The value of pi is approximately{math.pi:.3f}.')The value of pi is approximately 3.142.
-Passing an integer after the':'will cause that field to be a minimum
-number of characters wide.  This is useful for making columns line up.
->>>table={'Sjoerd':4127,'Jack':4098,'Dcab':7678}>>>forname,phoneintable.items():...print(f'{name:10}==>{phone:10d}')...Sjoerd     ==>       4127Jack       ==>       4098Dcab       ==>       7678
-Other modifiers can be used to convert the value before it is formatted.'!a'appliesascii(),'!s'appliesstr(), and'!r'appliesrepr():
-'!a'
-ascii()
-'!s'
-'!r'
->>>animals='eels'>>>print(f'My hovercraft is full of{animals}.')My hovercraft is full of eels.>>>print(f'My hovercraft is full of{animals!r}.')My hovercraft is full of 'eels'.
-The=specifier can be used to expand an expression to the text of the
-expression, an equal sign, then the representation of the evaluated expression:
->>>bugs='roaches'>>>count=13>>>area='living room'>>>print(f'Debugging{bugs=}{count=}{area=}')Debugging bugs='roaches' count=13 area='living room'
-Seeself-documenting expressionsfor more information
-on the=specifier. For a reference on these format specifications, see
-the reference guide for theFormat specification mini-language.
-
-### 7.1.2.The String format() MethodÂ¶
-
-Basic usage of thestr.format()method looks like this:
->>>print('We are the{}who say "{}!"'.format('knights','Ni'))We are the knights who say "Ni!"
-The brackets and characters within them (called format fields) are replaced with
-the objects passed into thestr.format()method.  A number in the
-brackets can be used to refer to the position of the object passed into thestr.format()method.
->>>print('{0}and{1}'.format('spam','eggs'))spam and eggs>>>print('{1}and{0}'.format('spam','eggs'))eggs and spam
-If keyword arguments are used in thestr.format()method, their values
-are referred to by using the name of the argument.
->>>print('This{food}is{adjective}.'.format(...food='spam',adjective='absolutely horrible'))This spam is absolutely horrible.
-Positional and keyword arguments can be arbitrarily combined:
->>>print('The story of{0},{1}, and{other}.'.format('Bill','Manfred',...other='Georg'))The story of Bill, Manfred, and Georg.
-If you have a really long format string that you donât want to split up, it
-would be nice if you could reference the variables to be formatted by name
-instead of by position.  This can be done by simply passing the dict and using
-square brackets'[]'to access the keys.
->>>table={'Sjoerd':4127,'Jack':4098,'Dcab':8637678}>>>print('Jack:{0[Jack]:d}; Sjoerd:{0[Sjoerd]:d}; '...'Dcab:{0[Dcab]:d}'.format(table))Jack: 4098; Sjoerd: 4127; Dcab: 8637678
-This could also be done by passing thetabledictionary as keyword arguments with the**notation.
-table
->>>table={'Sjoerd':4127,'Jack':4098,'Dcab':8637678}>>>print('Jack:{Jack:d}; Sjoerd:{Sjoerd:d}; Dcab:{Dcab:d}'.format(**table))Jack: 4098; Sjoerd: 4127; Dcab: 8637678
-This is particularly useful in combination with the built-in functionvars(), which returns a dictionary containing all local variables:
-vars()
->>>table={k:str(v)fork,vinvars().items()}>>>message=" ".join([f'{k}: '+'{'+k+'};'forkintable.keys()])>>>print(message.format(**table))__name__: __main__; __doc__: None; __package__: None; __loader__: ...
-As an example, the following lines produce a tidily aligned
-set of columns giving integers and their squares and cubes:
->>>forxinrange(1,11):...print('{0:2d}{1:3d}{2:4d}'.format(x,x*x,x*x*x))...1   1    12   4    83   9   274  16   645  25  1256  36  2167  49  3438  64  5129  81  72910 100 1000
-For a complete overview of string formatting withstr.format(), seeFormat string syntax.
-
-### 7.1.3.Manual String FormattingÂ¶
-
-Hereâs the same table of squares and cubes, formatted manually:
->>>forxinrange(1,11):...print(repr(x).rjust(2),repr(x*x).rjust(3),end=' ')...# Note use of 'end' on previous line...print(repr(x*x*x).rjust(4))...1   1    12   4    83   9   274  16   645  25  1256  36  2167  49  3438  64  5129  81  72910 100 1000
-(Note that the one space between each column was added by the
-wayprint()works: it always adds spaces between its arguments.)
-Thestr.rjust()method of string objects right-justifies a string in a
-field of a given width by padding it with spaces on the left. There are
-similar methodsstr.ljust()andstr.center(). These methods do
-not write anything, they just return a new string. If the input string is too
-long, they donât truncate it, but return it unchanged; this will mess up your
-column lay-out but thatâs usually better than the alternative, which would be
-lying about a value. (If you really want truncation you can always add a
-slice operation, as inx.ljust(n)[:n].)
-str.rjust()
-str.ljust()
-str.center()
-x.ljust(n)[:n]
-There is another method,str.zfill(), which pads a numeric string on the
-left with zeros.  It understands about plus and minus signs:
-str.zfill()
->>>'12'.zfill(5)'00012'>>>'-3.14'.zfill(7)'-003.14'>>>'3.14159265359'.zfill(5)'3.14159265359'
-
-### 7.1.4.Old string formattingÂ¶
-
-The % operator (modulo) can also be used for string formatting.
-Givenformat%values(whereformatis a string),%conversion specifications informatare replaced with
-zero or more elements ofvalues.
-This operation is commonly known as string
-interpolation. For example:
-format%values
->>>importmath>>>print('The value of pi is approximately%5.3f.'%math.pi)The value of pi is approximately 3.142.
-More information can be found in theprintf-style String Formattingsection.
-
-## 7.2.Reading and Writing FilesÂ¶
-
-open()returns afile object, and is most commonly used with
-two positional arguments and one keyword argument:open(filename,mode,encoding=None)
-open()
-open(filename,mode,encoding=None)
->>>f=open('workfile','w',encoding="utf-8")
-The first argument is a string containing the filename.  The second argument is
-another string containing a few characters describing the way in which the file
-will be used.modecan be'r'when the file will only be read,'w'for only writing (an existing file with the same name will be erased), and'a'opens the file for appending; any data written to the file is
-automatically added to the end.'r+'opens the file for both reading and
-writing. Themodeargument is optional;'r'will be assumed if itâs
-omitted.
-'r'
-'w'
-'a'
-'r+'
-Normally, files are opened intext mode, that means, you read and write
-strings from and to the file, which are encoded in a specificencoding.
-Ifencodingis not specified, the default is platform dependent
-(seeopen()).
-Because UTF-8 is the modern de-facto standard,encoding="utf-8"is
-recommended unless you know that you need to use a different encoding.
-Appending a'b'to the mode opens the file inbinary mode.
-Binary mode data is read and written asbytesobjects.
-You can not specifyencodingwhen opening file in binary mode.
-encoding="utf-8"
-'b'
-In text mode, the default when reading is to convert platform-specific line
-endings (\non Unix,\r\non Windows) to just\n.  When writing in
-text mode, the default is to convert occurrences of\nback to
-platform-specific line endings.  This behind-the-scenes modification
-to file data is fine for text files, but will corrupt binary data like that inJPEGorEXEfiles.  Be very careful to use binary mode when
-reading and writing such files.
-\r\n
-JPEG
-EXE
-It is good practice to use thewithkeyword when dealing
-with file objects.  The advantage is that the file is properly closed
-after its suite finishes, even if an exception is raised at some
-point.  Usingwithis also much shorter than writing
-equivalenttry-finallyblocks:
-with
-try
-finally
->>>withopen('workfile',encoding="utf-8")asf:...read_data=f.read()>>># We can check that the file has been automatically closed.>>>f.closedTrue
-If youâre not using thewithkeyword, then you should callf.close()to close the file and immediately free up any system
-resources used by it.
-f.close()
-Warning
-Callingf.write()without using thewithkeyword or callingf.close()mightresult in the arguments
-off.write()not being completely written to the disk, even if the
-program exits successfully.
-f.write()
-After a file object is closed, either by awithstatement
-or by callingf.close(), attempts to use the file object will
-automatically fail.
->>>f.close()>>>f.read()Traceback (most recent call last):File"<stdin>", line1, in<module>ValueError:I/O operation on closed file.
-
-### 7.2.1.Methods of File ObjectsÂ¶
-
-The rest of the examples in this section will assume that a file object calledfhas already been created.
-To read a fileâs contents, callf.read(size), which reads some quantity of
-data and returns it as a string (in text mode) or bytes object (in binary mode).sizeis an optional numeric argument.  Whensizeis omitted or negative, the
-entire contents of the file will be read and returned; itâs your problem if the
-file is twice as large as your machineâs memory. Otherwise, at mostsizecharacters (in text mode) orsizebytes (in binary mode) are read and returned.
-If the end of the file has been reached,f.read()will return an empty
-string ('').
-f.read(size)
-f.read()
->>>f.read()'This is the entire file.\n'>>>f.read()''
-f.readline()reads a single line from the file; a newline character (\n)
-is left at the end of the string, and is only omitted on the last line of the
-file if the file doesnât end in a newline.  This makes the return value
-unambiguous; iff.readline()returns an empty string, the end of the file
-has been reached, while a blank line is represented by'\n', a string
-containing only a single newline.
-f.readline()
-'\n'
->>>f.readline()'This is the first line of the file.\n'>>>f.readline()'Second line of the file\n'>>>f.readline()''
-For reading lines from a file, you can loop over the file object. This is memory
-efficient, fast, and leads to simple code:
->>>forlineinf:...print(line,end='')...This is the first line of the file.Second line of the file
-If you want to read all the lines of a file in a list you can also uselist(f)orf.readlines().
-list(f)
-f.readlines()
-f.write(string)writes the contents ofstringto the file, returning
-the number of characters written.
-f.write(string)
->>>f.write('This is a test\n')15
-Other types of objects need to be converted â either to a string (in text mode)
-or a bytes object (in binary mode) â before writing them:
->>>value=('the answer',42)>>>s=str(value)# convert the tuple to string>>>f.write(s)18
-f.tell()returns an integer giving the file objectâs current position in the file
-represented as number of bytes from the beginning of the file when in binary mode and
-an opaque number when in text mode.
-f.tell()
-To change the file objectâs position, usef.seek(offset,whence).  The position is computed
-from addingoffsetto a reference point; the reference point is selected by
-thewhenceargument.  Awhencevalue of 0 measures from the beginning
-of the file, 1 uses the current file position, and 2 uses the end of the file as
-the reference point.whencecan be omitted and defaults to 0, using the
-beginning of the file as the reference point.
-f.seek(offset,whence)
->>>f=open('workfile','rb+')>>>f.write(b'0123456789abcdef')16>>>f.seek(5)# Go to the 6th byte in the file5>>>f.read(1)b'5'>>>f.seek(-3,2)# Go to the 3rd byte before the end13>>>f.read(1)b'd'
-In text files (those opened without abin the mode string), only seeks
-relative to the beginning of the file are allowed (the exception being seeking
-to the very file end withseek(0,2)) and the only validoffsetvalues are
-those returned from thef.tell(), or zero. Any otheroffsetvalue produces
-undefined behaviour.
-seek(0,2)
-File objects have some additional methods, such asisatty()andtruncate()which are less frequently used; consult the Library
-Reference for a complete guide to file objects.
-isatty()
-truncate()
-
-### 7.2.2.Saving structured data withjsonÂ¶
-
-Strings can easily be written to and read from a file.  Numbers take a bit more
-effort, since theread()method only returns strings, which will have to
-be passed to a function likeint(), which takes a string like'123'and returns its numeric value 123.  When you want to save more complex data
-types like nested lists and dictionaries, parsing and serializing by hand
-becomes complicated.
-read()
-int()
-'123'
-Rather than having users constantly writing and debugging code to save
-complicated data types to files, Python allows you to use the popular data
-interchange format calledJSON (JavaScript Object Notation).  The standard module calledjsoncan take Python
-data hierarchies, and convert them to string representations; this process is
-calledserializing.  Reconstructing the data from the string representation
-is calleddeserializing.  Between serializing and deserializing, the
-string representing the object may have been stored in a file or data, or
-sent over a network connection to some distant machine.
-The JSON format is commonly used by modern applications to allow for data
-exchange.  Many programmers are already familiar with it, which makes
-it a good choice for interoperability.
-If you have an objectx, you can view its JSON string representation with a
-simple line of code:
->>>importjson>>>x=[1,'simple','list']>>>json.dumps(x)'[1, "simple", "list"]'
-Another variant of thedumps()function, calleddump(),
-simply serializes the object to atext file.  So iffis atext fileobject opened for writing, we can do this:
-dumps()
-dump()
-json.dump(x,f)
-To decode the object again, iffis abinary fileortext fileobject which has been opened for reading:
-x=json.load(f)
-JSON files must be encoded in UTF-8. Useencoding="utf-8"when opening
-JSON file as atext filefor both of reading and writing.
-This simple serialization technique can handle lists and dictionaries, but
-serializing arbitrary class instances in JSON requires a bit of extra effort.
-The reference for thejsonmodule contains an explanation of this.
-See also
-pickle- the pickle module
-Contrary toJSON,pickleis a protocol which allows
-the serialization of arbitrarily complex Python objects.  As such, it is
-specific to Python and cannot be used to communicate with applications
-written in other languages.  It is also insecure by default:
-deserializing pickle data coming from an untrusted source can execute
-arbitrary code, if the data was crafted by a skilled attacker.
-
-### Table of Contents
-#### Previous topic
-#### Next topic
-
-8.Errors and Exceptions
-
-### This page
-### Navigation
-## 8. Errors and Exceptions — Python 3.14.6 documentation
-来源: https://docs.python.org/3/tutorial/errors.html
-### Navigation
-
-- 8.Errors and Exceptions
-
-# 8.Errors and ExceptionsÂ¶
-
-Until now error messages havenât been more than mentioned, but if you have tried
-out the examples you have probably seen some.  There are (at least) two
-distinguishable kinds of errors:syntax errorsandexceptions.
-
-## 8.1.Syntax ErrorsÂ¶
-
-Syntax errors, also known as parsing errors, are perhaps the most common kind of
-complaint you get while you are still learning Python:
->>>whileTrueprint('Hello world')File"<stdin>", line1whileTrueprint('Hello world')^^^^^SyntaxError:invalid syntax
-The parser repeats the offending line and displays little arrows pointing
-at the place where the error was detected.  Note that this is not always the
-place that needs to be fixed.  In the example, the error is detected at the
-functionprint(), since a colon (':') is missing just before it.
-The file name (<stdin>in our example) and line number are printed so you
-know where to look in case the input came from a file.
-<stdin>
-
-## 8.2.ExceptionsÂ¶
-
-Even if a statement or expression is syntactically correct, it may cause an
-error when an attempt is made to execute it. Errors detected during execution
-are calledexceptionsand are not unconditionally fatal: you will soon learn
-how to handle them in Python programs.  Most exceptions are not handled by
-programs, however, and result in error messages as shown here:
->>>10*(1/0)Traceback (most recent call last):File"<stdin>", line1, in<module>10*(1/0)~^~ZeroDivisionError:division by zero>>>4+spam*3Traceback (most recent call last):File"<stdin>", line1, in<module>4+spam*3^^^^NameError:name 'spam' is not defined>>>'2'+2Traceback (most recent call last):File"<stdin>", line1, in<module>'2'+2~~~~^~~TypeError:can only concatenate str (not "int") to str
-The last line of the error message indicates what happened. Exceptions come in
-different types, and the type is printed as part of the message: the types in
-the example areZeroDivisionError,NameErrorandTypeError.
-The string printed as the exception type is the name of the built-in exception
-that occurred.  This is true for all built-in exceptions, but need not be true
-for user-defined exceptions (although it is a useful convention). Standard
-exception names are built-in identifiers (not reserved keywords).
-ZeroDivisionError
-NameError
-The rest of the line provides detail based on the type of exception and what
-caused it.
-The preceding part of the error message shows the context where the exception
-occurred, in the form of a stack traceback. In general it contains a stack
-traceback listing source lines; however, it will not display lines read from
-standard input.
-Built-in Exceptionslists the built-in exceptions and their meanings.
-
-## 8.3.Handling ExceptionsÂ¶
-
-It is possible to write programs that handle selected exceptions. Look at the
-following example, which asks the user for input until a valid integer has been
-entered, but allows the user to interrupt the program (usingControl-Cor
-whatever the operating system supports); note that a user-generated interruption
-is signalled by raising theKeyboardInterruptexception.
-KeyboardInterrupt
->>>whileTrue:...try:...x=int(input("Please enter a number: "))...break...exceptValueError:...print("Oops!  That was no valid number.  Try again...")...
-Thetrystatement works as follows.
-- First, thetry clause(the statement(s) between thetryandexceptkeywords) is executed.
-First, thetry clause(the statement(s) between thetryandexceptkeywords) is executed.
-except
-- If no exception occurs, theexcept clauseis skipped and execution of thetrystatement is finished.
-If no exception occurs, theexcept clauseis skipped and execution of thetrystatement is finished.
-- If an exception occurs during execution of thetryclause, the rest of the
-clause is skipped.  Then, if its type matches the exception named after theexceptkeyword, theexcept clauseis executed, and then execution
-continues after the try/except block.
-If an exception occurs during execution of thetryclause, the rest of the
-- If an exception occurs which does not match the exception named in theexcept
-clause, it is passed on to outertrystatements; if no handler is
-found, it is anunhandled exceptionand execution stops with an error message.
-If an exception occurs which does not match the exception named in theexcept
-Atrystatement may have more than oneexcept clause, to specify
-handlers for different exceptions.  At most one handler will be executed.
-Handlers only handle exceptions that occur in the correspondingtry clause,
-not in other handlers of the sametrystatement.  Anexcept clausemay name multiple exceptions, for example:
-...exceptRuntimeError,TypeError,NameError:...pass
-A class in anexceptclause matches exceptions which are instances of the
-class itself or one of its derived classes (but not the other way around â anexcept clauselisting a derived class does not match instances of its base classes).
-For example, the following code will print B, C, D in that order:
-classB(Exception):passclassC(B):passclassD(C):passforclsin[B,C,D]:try:raisecls()exceptD:print("D")exceptC:print("C")exceptB:print("B")
-Note that if theexcept clauseswere reversed (withexceptBfirst), it
-would have printed B, B, B â the first matchingexcept clauseis triggered.
-exceptB
-When an exception occurs, it may have associated values, also known as the
-exceptionâsarguments. The presence and types of the arguments depend on the
-exception type.
-Theexcept clausemay specify a variable after the exception name.  The
-variable is bound to the exception instance which typically has anargsattribute that stores the arguments. For convenience, builtin exception
-types define__str__()to print all the arguments without explicitly
-accessing.args.
-args
-__str__()
-.args
->>>try:...raiseException('spam','eggs')...exceptExceptionasinst:...print(type(inst))# the exception type...print(inst.args)# arguments stored in .args...print(inst)# __str__ allows args to be printed directly,...# but may be overridden in exception subclasses...x,y=inst.args# unpack args...print('x =',x)...print('y =',y)...<class 'Exception'>('spam', 'eggs')('spam', 'eggs')x = spamy = eggs
-The exceptionâs__str__()output is printed as the last part (âdetailâ)
-of the message for unhandled exceptions.
-BaseExceptionis the common base class of all exceptions. One of its
-subclasses,Exception, is the base class of all the non-fatal exceptions.
-Exceptions which are not subclasses ofExceptionare not typically
-handled, because they are used to indicate that the program should terminate.
-They includeSystemExitwhich is raised bysys.exit()andKeyboardInterruptwhich is raised when a user wishes to interrupt
-the program.
-BaseException
-Exception
-SystemExit
-sys.exit()
-Exceptioncan be used as a wildcard that catches (almost) everything.
-However, it is good practice to be as specific as possible with the types
-of exceptions that we intend to handle, and to allow any unexpected
-exceptions to propagate on.
-The most common pattern for handlingExceptionis to print or log
-the exception and then re-raise it (allowing a caller to handle the
-exception as well):
-importsystry:f=open('myfile.txt')s=f.readline()i=int(s.strip())exceptOSErroraserr:print("OS error:",err)exceptValueError:print("Could not convert data to an integer.")exceptExceptionaserr:print(f"Unexpected{err=},{type(err)=}")raise
-Thetryâ¦exceptstatement has an optionalelse
-clause, which, when present, must follow allexcept clauses.  It is useful
-for code that must be executed if thetry clausedoes not raise an exception.
-For example:
-forarginsys.argv[1:]:try:f=open(arg,'r')exceptOSError:print('cannot open',arg)else:print(arg,'has',len(f.readlines()),'lines')f.close()
-The use of theelseclause is better than adding additional code to
-thetryclause because it avoids accidentally catching an exception
-that wasnât raised by the code being protected by thetryâ¦exceptstatement.
-Exception handlers do not handle only exceptions that occur immediately in thetry clause, but also those that occur inside functions that are called (even
-indirectly) in thetry clause. For example:
->>>defthis_fails():...x=1/0...>>>try:...this_fails()...exceptZeroDivisionErroraserr:...print('Handling run-time error:',err)...Handling run-time error: division by zero
-
-## 8.4.Raising ExceptionsÂ¶
-
-Theraisestatement allows the programmer to force a specified
-exception to occur. For example:
-raise
->>>raiseNameError('HiThere')Traceback (most recent call last):File"<stdin>", line1, in<module>raiseNameError('HiThere')NameError:HiThere
-The sole argument toraiseindicates the exception to be raised.
-This must be either an exception instance or an exception class (a class that
-derives fromBaseException, such asExceptionor one of its
-subclasses).  If an exception class is passed, it will be implicitly
-instantiated by calling its constructor with no arguments:
-raiseValueError# shorthand for 'raise ValueError()'
-If you need to determine whether an exception was raised but donât intend to
-handle it, a simpler form of theraisestatement allows you to
-re-raise the exception:
->>>try:...raiseNameError('HiThere')...exceptNameError:...print('An exception flew by!')...raise...An exception flew by!Traceback (most recent call last):File"<stdin>", line2, in<module>raiseNameError('HiThere')NameError:HiThere
-
-## 8.5.Exception ChainingÂ¶
-
-If an unhandled exception occurs inside anexceptsection, it will
-have the exception being handled attached to it and included in the error
-message:
->>>try:...open("database.sqlite")...exceptOSError:...raiseRuntimeError("unable to handle error")...Traceback (most recent call last):File"<stdin>", line2, in<module>open("database.sqlite")~~~~^^^^^^^^^^^^^^^^^^^FileNotFoundError:[Errno 2] No such file or directory: 'database.sqlite'During handling of the above exception, another exception occurred:Traceback (most recent call last):File"<stdin>", line4, in<module>raiseRuntimeError("unable to handle error")RuntimeError:unable to handle error
-To indicate that an exception is a direct consequence of another, theraisestatement allows an optionalfromclause:
-# exc must be exception instance or None.raiseRuntimeErrorfromexc
-This can be useful when you are transforming exceptions. For example:
->>>deffunc():...raiseConnectionError...>>>try:...func()...exceptConnectionErrorasexc:...raiseRuntimeError('Failed to open database')fromexc...Traceback (most recent call last):File"<stdin>", line2, in<module>func()~~~~^^File"<stdin>", line2, infuncConnectionErrorThe above exception was the direct cause of the following exception:Traceback (most recent call last):File"<stdin>", line4, in<module>raiseRuntimeError('Failed to open database')fromexcRuntimeError:Failed to open database
-It also allows disabling automatic exception chaining using thefromNoneidiom:
-fromNone
->>>try:...open('database.sqlite')...exceptOSError:...raiseRuntimeErrorfromNone...Traceback (most recent call last):File"<stdin>", line4, in<module>raiseRuntimeErrorfromNoneRuntimeError
-For more information about chaining mechanics, seeBuilt-in Exceptions.
-
-## 8.6.User-defined ExceptionsÂ¶
-
-Programs may name their own exceptions by creating a new exception class (seeClassesfor more about Python classes).  Exceptions should typically
-be derived from theExceptionclass, either directly or indirectly.
-Exception classes can be defined which do anything any other class can do, but
-are usually kept simple, often only offering a number of attributes that allow
-information about the error to be extracted by handlers for the exception.
-Most exceptions are defined with names that end in âErrorâ, similar to the
-naming of the standard exceptions.
-Many standard modules define their own exceptions to report errors that may
-occur in functions they define.
-
-## 8.7.Defining Clean-up ActionsÂ¶
-
-Thetrystatement has another optional clause which is intended to
-define clean-up actions that must be executed under all circumstances.  For
->>>try:...raiseKeyboardInterrupt...finally:...print('Goodbye, world!')...Goodbye, world!Traceback (most recent call last):File"<stdin>", line2, in<module>raiseKeyboardInterruptKeyboardInterrupt
-If afinallyclause is present, thefinallyclause will execute as the last task before thetrystatement completes. Thefinallyclause runs whether or
-not thetrystatement produces an exception. The following
-points discuss more complex cases when an exception occurs:
-- If an exception occurs during execution of thetryclause, the exception may be handled by anexceptclause. If the exception is not handled by anexceptclause, the exception is re-raised after thefinallyclause has been executed.
-If an exception occurs during execution of thetryclause, the exception may be handled by anexceptclause. If the exception is not handled by anexceptclause, the exception is re-raised after thefinallyclause has been executed.
-- An exception could occur during execution of anexceptorelseclause. Again, the exception is re-raised after
-thefinallyclause has been executed.
-An exception could occur during execution of anexceptorelseclause. Again, the exception is re-raised after
-- If thefinallyclause executes abreak,continueorreturnstatement, exceptions are not
-re-raised. This can be confusing and is therefore discouraged. From
-version 3.14 the compiler emits aSyntaxWarningfor it
-(seePEP 765).
-If thefinallyclause executes abreak,continueorreturnstatement, exceptions are not
-return
-SyntaxWarning
-- If thetrystatement reaches abreak,continueorreturnstatement, thefinallyclause will execute just prior to thebreak,continueorreturnstatementâs execution.
-If thetrystatement reaches abreak,continueorreturnstatement, thefinallyclause will execute just prior to thebreak,continueorreturnstatementâs execution.
-- If afinallyclause includes areturnstatement, the returned value will be the one from thefinallyclauseâsreturnstatement, not the
-value from thetryclauseâsreturnstatement. This can be confusing and is therefore discouraged. From
-If afinallyclause includes areturnstatement, the returned value will be the one from thefinallyclauseâsreturnstatement, not the
->>>defbool_return():...try:...returnTrue...finally:...returnFalse...>>>bool_return()False
-A more complicated example:
->>>defdivide(x,y):...try:...result=x/y...exceptZeroDivisionError:...print("division by zero!")...else:...print("result is",result)...finally:...print("executing finally clause")...>>>divide(2,1)result is 2.0executing finally clause>>>divide(2,0)division by zero!executing finally clause>>>divide("2","1")executing finally clauseTraceback (most recent call last):File"<stdin>", line1, in<module>divide("2","1")~~~~~~^^^^^^^^^^File"<stdin>", line3, individeresult=x/y~~^~~TypeError:unsupported operand type(s) for /: 'str' and 'str'
-As you can see, thefinallyclause is executed in any event.  TheTypeErrorraised by dividing two strings is not handled by theexceptclause and therefore re-raised after thefinallyclause has been executed.
-In real world applications, thefinallyclause is useful for
-releasing external resources (such as files or network connections), regardless
-of whether the use of the resource was successful.
-
-## 8.8.Predefined Clean-up ActionsÂ¶
-
-Some objects define standard clean-up actions to be undertaken when the object
-is no longer needed, regardless of whether or not the operation using the object
-succeeded or failed. Look at the following example, which tries to open a file
-and print its contents to the screen.
-forlineinopen("myfile.txt"):print(line,end="")
-The problem with this code is that it leaves the file open for an indeterminate
-amount of time after this part of the code has finished executing.
-This is not an issue in simple scripts, but can be a problem for larger
-applications. Thewithstatement allows objects like files to be
-used in a way that ensures they are always cleaned up promptly and correctly.
-withopen("myfile.txt")asf:forlineinf:print(line,end="")
-After the statement is executed, the filefis always closed, even if a
-problem was encountered while processing the lines. Objects which, like files,
-provide predefined clean-up actions will indicate this in their documentation.
-
-## 8.9.Raising and Handling Multiple Unrelated ExceptionsÂ¶
-
-There are situations where it is necessary to report several exceptions that
-have occurred. This is often the case in concurrency frameworks, when several
-tasks may have failed in parallel, but there are also other use cases where
-it is desirable to continue execution and collect multiple errors rather than
-raise the first exception.
-The builtinExceptionGroupwraps a list of exception instances so
-that they can be raised together. It is an exception itself, so it can be
-caught like any other exception.
->>>deff():...excs=[OSError('error 1'),SystemError('error 2')]...raiseExceptionGroup('there were problems',excs)...>>>f()+ Exception Group Traceback (most recent call last):|   File "<stdin>", line 1, in <module>|     f()|     ~^^|   File "<stdin>", line 3, in f|     raise ExceptionGroup('there were problems', excs)| ExceptionGroup: there were problems (2 sub-exceptions)+-+---------------- 1 ----------------| OSError: error 1+---------------- 2 ----------------| SystemError: error 2+------------------------------------>>>try:...f()...exceptExceptionase:...print(f'caught{type(e)}:{e}')...caught <class 'ExceptionGroup'>: there were problems (2 sub-exceptions)>>>
-By usingexcept*instead ofexcept, we can selectively
-handle only the exceptions in the group that match a certain
-type. In the following example, which shows a nested exception
-group, eachexcept*clause extracts from the group exceptions
-of a certain type while letting all other exceptions propagate to
-other clauses and eventually to be reraised.
-except*
->>>deff():...raiseExceptionGroup(..."group1",...[...OSError(1),...SystemError(2),...ExceptionGroup(..."group2",...[...OSError(3),...RecursionError(4)...]...)...]...)...>>>try:...f()...except*OSErrorase:...print("There were OSErrors")...except*SystemErrorase:...print("There were SystemErrors")...There were OSErrorsThere were SystemErrors+ Exception Group Traceback (most recent call last):|   File "<stdin>", line 2, in <module>|     f()|     ~^^|   File "<stdin>", line 2, in f|     raise ExceptionGroup(|     ...<12 lines>...|     )| ExceptionGroup: group1 (1 sub-exception)+-+---------------- 1 ----------------| ExceptionGroup: group2 (1 sub-exception)+-+---------------- 1 ----------------| RecursionError: 4+------------------------------------>>>
-Note that the exceptions nested in an exception group must be instances,
-not types. This is because in practice the exceptions would typically
-be ones that have already been raised and caught by the program, along
-the following pattern:
->>>excs=[]...fortestintests:...try:...test.run()...exceptExceptionase:...excs.append(e)...>>>ifexcs:...raiseExceptionGroup("Test Failures",excs)...
-
-## 8.10.Enriching Exceptions with NotesÂ¶
-
-When an exception is created in order to be raised, it is usually initialized
-with information that describes the error that has occurred. There are cases
-where it is useful to add information after the exception was caught. For this
-purpose, exceptions have a methodadd_note(note)that accepts a string and
-adds it to the exceptionâs notes list. The standard traceback rendering
-includes all notes, in the order they were added, after the exception.
-add_note(note)
->>>try:...raiseTypeError('bad type')...exceptExceptionase:...e.add_note('Add some information')...e.add_note('Add some more information')...raise...Traceback (most recent call last):File"<stdin>", line2, in<module>raiseTypeError('bad type')TypeError:bad typeAdd some informationAdd some more information>>>
-For example, when collecting exceptions into an exception group, we may want
-to add context information for the individual errors. In the following each
-exception in the group has a note indicating when this error has occurred.
->>>deff():...raiseOSError('operation failed')...>>>excs=[]>>>foriinrange(3):...try:...f()...exceptExceptionase:...e.add_note(f'Happened in Iteration{i+1}')...excs.append(e)...>>>raiseExceptionGroup('We have some problems',excs)+ Exception Group Traceback (most recent call last):|   File "<stdin>", line 1, in <module>|     raise ExceptionGroup('We have some problems', excs)| ExceptionGroup: We have some problems (3 sub-exceptions)+-+---------------- 1 ----------------| Traceback (most recent call last):|   File "<stdin>", line 3, in <module>|     f()|     ~^^|   File "<stdin>", line 2, in f|     raise OSError('operation failed')| OSError: operation failed| Happened in Iteration 1+---------------- 2 ----------------| Traceback (most recent call last):|   File "<stdin>", line 3, in <module>|     f()|     ~^^|   File "<stdin>", line 2, in f|     raise OSError('operation failed')| OSError: operation failed| Happened in Iteration 2+---------------- 3 ----------------| Traceback (most recent call last):|   File "<stdin>", line 3, in <module>|     f()|     ~^^|   File "<stdin>", line 2, in f|     raise OSError('operation failed')| OSError: operation failed| Happened in Iteration 3+------------------------------------>>>
-
-### Table of Contents
-#### Previous topic
-#### Next topic
-
-9.Classes
 
 ### This page
 ### Navigation

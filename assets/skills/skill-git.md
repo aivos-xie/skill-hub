@@ -6,7 +6,7 @@ crawled: 2026-06-11
 pages: 12
 
 # Git 知识库
-> 爬取来源: https://git-scm.com/docs | 12 页内容
+> 来源: https://git-scm.com/docs | 12 页
 
 ## Git - Reference
 来源: https://git-scm.com/docs
