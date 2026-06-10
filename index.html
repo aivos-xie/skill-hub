@@ -47,15 +47,15 @@
   <div class="container">
     <div class="stats">
       <div class="stat">
-        <div class="stat-value" id="stat-skills">9</div>
+        <div class="stat-value" id="stat-skills">--</div>
         <div class="stat-label">Skill Modules</div>
       </div>
       <div class="stat">
-        <div class="stat-value" id="stat-knowledge">0</div>
+        <div class="stat-value" id="stat-knowledge">--</div>
         <div class="stat-label">AI Knowledge</div>
       </div>
       <div class="stat">
-        <div class="stat-value" id="stat-mcp">8</div>
+        <div class="stat-value" id="stat-mcp">--</div>
         <div class="stat-label">MCP Tools</div>
       </div>
       <div class="stat">
@@ -137,18 +137,13 @@
 </footer>
 
 <script src="assets/app.js"></script>
-<!-- 糖糖: 动态更新统计数字 -->
-<!-- 糖糖: 动态更新统计数字 -->
+
+
 <script>
-fetch("/skill-hub/assets/knowledge-index.json")
-  .then(r => r.json())
-  .then(d => {
-    var el = document.getElementById("stat-skills");
-    if (el) el.textContent = d.total_skills || 0;
-    el = document.getElementById("stat-knowledge");
-    if (el) el.textContent = d.total_ai_knowledge || 0;
-  })
-  .catch(function(e) { console.log("Stats update skipped:", e.message); });
+fetch("/skill-hub/assets/knowledge-index.json").then(r=>r.json()).then(d=>{
+document.getElementById("stat-skills").textContent=d.total_skills||0;
+document.getElementById("stat-knowledge").textContent=d.total_ai_knowledge||0;
+}).catch(e=>{});
 </script>
 </body>
 </html>
