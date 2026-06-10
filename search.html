@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Knowledge -- Skill Hub</title>
+<meta name="description" content="Search the Skill Hub knowledge base for programming notes, tool handbooks, course materials, and more.">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Skill Hub
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
+      <a href="mcp.html">MCP</a>
+      <a href="search.html" class="active">Search</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>Search Knowledge</h1>
+      <p>Search across all Skill modules and AI knowledge documents.</p>
+    </div>
+
+    <div class="search-bar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Search Python, Git, Docker, algorithms..." oninput="doSearch()" autofocus>
+    </div>
+
+    <div class="search-results" id="searchResults">
+      <p style="color:var(--text-muted);text-align:center;padding:40px 0">Type a keyword to search the knowledge base.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">Skill Hub &middot; MIT Licensed</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
+      <a href="mcp.html">MCP</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const searchIndex = [
+  { id:"python", title:"Python Learning Notes", desc:"Python syntax, standard library, virtual environments, and core knowledge.", tags:["python","venv","stdlib","list comprehension"], url:"/docs/programming/python.html", type:"skill" },
+  { id:"algorithms", title:"Data Structures & Algorithms", desc:"Time complexity, binary search, BFS/DFS templates for interviews.", tags:["algorithms","data-structures","complexity","bfs","dfs"], url:"/docs/programming/algorithms.html", type:"skill" },
+  { id:"git", title:"Git Commands", desc:"Git basics, branching, remote repos, stash, and daily workflow.", tags:["git","version-control","branch","remote","stash"], url:"/docs/tools/git.html", type:"skill" },
+  { id:"linux", title:"Linux Basics", desc:"File operations, permissions, process management, and SSH.", tags:["linux","command-line","permissions","process","ssh"], url:"/docs/tools/linux.html", type:"skill" },
+  { id:"docker", title:"Docker Introduction", desc:"Container concepts, common commands, Dockerfile, and compose.", tags:["docker","container","image","dockerfile","compose"], url:"/docs/tools/docker.html", type:"skill" },
+  { id:"courses", title:"Course Materials", desc:"OS and computer networks: processes, memory, TCP/IP.", tags:["os","network","process","tcp","ip","memory"], url:"/docs/courses/index.html", type:"skill" },
+  { id:"reading", title:"Reading Notes", desc:"Technical book summaries: CSAPP, design patterns, methodology.", tags:["books","methodology","csapp","design-patterns"], url:"/docs/reading/index.html", type:"skill" },
+  { id:"resources", title:"Resource Collection", desc:"Curated learning websites, online courses, and dev tools.", tags:["resources","websites","courses","tools","leetcode"], url:"/docs/resources/index.html", type:"skill" },
+];
+
+function doSearch() {
+  const q = document.getElementById("searchInput").value.trim().toLowerCase();
+  const container = document.getElementById("searchResults");
+
+  if (!q) {
+    container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px 0">Type a keyword to search the knowledge base.</p>';
+    return;
+  }
+
+  const keywords = q.split(/\s+/);
+  const results = searchIndex.map(item => {
+    let score = 0;
+    const text = `${item.title} ${item.desc} ${item.tags.join(" ")}`.toLowerCase();
+    for (const kw of keywords) {
+      if (item.title.toLowerCase().includes(kw)) score += 10;
+      if (item.tags.some(t => t.toLowerCase().includes(kw))) score += 5;
+      if (item.desc.toLowerCase().includes(kw)) score += 2;
+    }
+    return { ...item, score };
+  }).filter(r => r.score > 0).sort((a, b) => b.score - a.score);
+
+  if (results.length === 0) {
+    container.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:40px 0">No results for "${q}".</p>`;
+    return;
+  }
+
+  container.innerHTML = results.map(r => `
+    <div class="search-result">
+      <div class="search-result-title"><a href="${r.url}">${r.title}</a></div>
+      <div class="search-result-desc">${r.desc}</div>
+      <div class="search-result-meta">
+        <span>${r.type}</span>
+        ${r.tags.slice(0,4).map(t => `<span class="tag">${t}</span>`).join("")}
+      </div>
+    </div>
+  `).join("");
+}
+</script>
+</body>
+</html>

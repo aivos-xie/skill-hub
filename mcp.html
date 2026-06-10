@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Server -- Skill Hub</title>
+<meta name="description" content="Connect the AIVIOS Coding Coach MCP server to your AI client. 8 tools for knowledge search, code review, architecture, debugging, and refactoring.">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Skill Hub
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
+      <a href="mcp.html" class="active">MCP</a>
+      <a href="search.html">Search</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>MCP Server</h1>
+      <p>Connect the AIVIOS Coding Coach to your AI client. 8 tools that turn your assistant into a coding mentor.</p>
+    </div>
+
+    <div class="mcp-section">
+      <h2>Quick Install</h2>
+      <div class="code-block" style="margin-bottom:16px">
+        <button class="copy-btn" onclick="copyCode(this, 'npx aivios-coding-coach')">Copy</button>
+        npx aivios-coding-coach
+      </div>
+      <p style="color:var(--text-secondary);font-size:0.9rem">No API keys. No database. No server. Just Node.js 18+ and an internet connection.</p>
+    </div>
+
+    <div class="mcp-section">
+      <h2>Claude Desktop Configuration</h2>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px">Add this to your <code style="background:var(--bg-hover);padding:2px 6px;border-radius:3px;font-size:0.85rem">claude_desktop_config.json</code>:</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this, `{
+  &quot;mcpServers&quot;: {
+    &quot;aivios-coding-coach&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;aivios-coding-coach&quot;]
+    }
+  }
+}`)">Copy</button>
+{<br>
+&nbsp;&nbsp;"mcpServers": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"aivios-coding-coach": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["aivios-coding-coach"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+      </div>
+    </div>
+
+    <div class="mcp-section">
+      <h2>Codex Configuration</h2>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px">Add this to your <code style="background:var(--bg-hover);padding:2px 6px;border-radius:3px;font-size:0.85rem">.codex/config.json</code>:</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this, `{
+  &quot;mcpServers&quot;: {
+    &quot;aivios-coding-coach&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;aivios-coding-coach&quot;]
+    }
+  }
+}`)">Copy</button>
+{<br>
+&nbsp;&nbsp;"mcpServers": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"aivios-coding-coach": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["aivios-coding-coach"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+      </div>
+    </div>
+
+    <div class="mcp-section">
+      <h2>8 Tools</h2>
+      <table class="tool-table">
+        <thead>
+          <tr><th>Tool</th><th>Category</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>search_knowledge</td><td>Knowledge</td><td>Keyword search across all knowledge entries</td></tr>
+          <tr><td>get_document</td><td>Knowledge</td><td>Fetch full document content by ID</td></tr>
+          <tr><td>list_categories</td><td>Knowledge</td><td>List all knowledge categories and their documents</td></tr>
+          <tr><td>list_skills</td><td>Knowledge</td><td>List downloadable Skill modules with metadata</td></tr>
+          <tr><td>code_review</td><td>Coach</td><td>Structured checklist by language (Python / JS / General)</td></tr>
+          <tr><td>suggest_architecture</td><td>Coach</td><td>Architecture framework by project scale (S / M / L)</td></tr>
+          <tr><td>debug_workflow</td><td>Coach</td><td>6-step debugging workflow by error type</td></tr>
+          <tr><td>refactor_guide</td><td>Coach</td><td>Step-by-step refactoring strategy by code smell</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mcp-section">
+      <h2>How It Works</h2>
+      <ol style="color:var(--text-secondary);font-size:0.9rem;line-height:2;padding-left:20px">
+        <li>On startup, the server fetches the knowledge index from GitHub Pages</li>
+        <li>It loads Skill files and AI knowledge documents over HTTPS</li>
+        <li>Your AI client discovers the 8 tools via the MCP protocol</li>
+        <li>When you ask a coding question, the AI calls the relevant tool</li>
+        <li>The tool returns structured guidance -- not just a block of code</li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">Skill Hub &middot; MIT Licensed</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
+      <a href="mcp.html">MCP</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function copyCode(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = "Copy"; }, 1500);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Skills -- Skill Hub</title>
+<meta name="description" content="Download Skill modules for your AI assistant. Each .md file teaches your AI domain knowledge for better coding assistance.">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Skill Hub
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="download.html" class="active">Download</a>
+      <a href="mcp.html">MCP</a>
+      <a href="search.html">Search</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>Download Skills</h1>
+      <p>Each Skill is a .md file that teaches your AI assistant domain knowledge. Install them and your AI will automatically reference this knowledge when helping you code.</p>
+    </div>
+
+    <div class="search-bar" style="margin-bottom:24px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="skillFilter" placeholder="Filter skills by name or tag..." oninput="filterModules()">
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div style="color:var(--text-secondary);font-size:0.85rem" id="skillSearchCount">8 modules</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-sm" onclick="selectAll()">Select All</button>
+        <button class="btn btn-sm" onclick="deselectAll()">Deselect All</button>
+        <button class="btn btn-primary btn-sm" onclick="downloadSelected()">Download Selected</button>
+      </div>
+    </div>
+
+    <div class="skill-grid" id="skillModules"></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">Skill Hub &middot; MIT Licensed</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
+      <a href="mcp.html">MCP</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const modules = [
+  { id:"skill-python", icon:"&#x1F40D;", gradient:"linear-gradient(135deg,#3B82F6,#6366F1)", title:"Python Learning Notes", desc:"Python syntax, standard library, virtual environments, and core knowledge.", note:"Install to enable AI to reference Python knowledge automatically.", tags:["python","venv","stdlib","list comprehension"], category:"programming", docLink:"/docs/programming/python.html", downloadUrl:"/assets/skills/skill-python.md" },
+  { id:"skill-algorithms", icon:"&#x1F9EE;", gradient:"linear-gradient(135deg,#3B82F6,#06B6D4)", title:"Data Structures & Algorithms", desc:"Time complexity, binary search, BFS/DFS templates for interviews and practice.", note:"Install to enable AI to reference algorithm patterns.", tags:["algorithms","data-structures","complexity","bfs","dfs"], category:"programming", docLink:"/docs/programming/algorithms.html", downloadUrl:"/assets/skills/skill-algorithms.md" },
+  { id:"skill-git", icon:"&#x1F527;", gradient:"linear-gradient(135deg,#F97316,#EF4444)", title:"Git Commands", desc:"Git basics, branching, remote repos, stash, and daily workflow commands.", note:"Install to enable AI to reference Git workflows.", tags:["git","version-control","branch","remote","stash"], category:"tools", docLink:"/docs/tools/git.html", downloadUrl:"/assets/skills/skill-git.md" },
+  { id:"skill-linux", icon:"&#x1F427;", gradient:"linear-gradient(135deg,#F97316,#F59E0B)", title:"Linux Basics", desc:"File operations, permissions, process management, and SSH commands.", note:"Install to enable AI to reference Linux server commands.", tags:["linux","command-line","permissions","process","ssh"], category:"tools", docLink:"/docs/tools/linux.html", downloadUrl:"/assets/skills/skill-linux.md" },
+  { id:"skill-docker", icon:"&#x1F433;", gradient:"linear-gradient(135deg,#F97316,#6366F1)", title:"Docker Introduction", desc:"Container concepts, common commands, Dockerfile templates, and compose.", note:"Install to enable AI to reference Docker workflows.", tags:["docker","container","image","dockerfile","compose"], category:"tools", docLink:"/docs/tools/docker.html", downloadUrl:"/assets/skills/skill-docker.md" },
+  { id:"skill-courses", icon:"&#x1F4DA;", gradient:"linear-gradient(135deg,#6366F1,#8B5CF6)", title:"Course Materials", desc:"OS and computer networks course notes: processes, memory, TCP/IP.", note:"Install to enable AI to reference CS fundamentals.", tags:["os","network","process","tcp","ip","memory"], category:"courses", docLink:"/docs/courses/index.html", downloadUrl:"/assets/skills/skill-courses.md" },
+  { id:"skill-reading", icon:"&#x1F4D6;", gradient:"linear-gradient(135deg,#8B5CF6,#EC4899)", title:"Reading Notes", desc:"Technical book summaries and methodology insights: CSAPP, design patterns.", note:"Install to enable AI to reference book knowledge.", tags:["books","methodology","csapp","design-patterns"], category:"reading", docLink:"/docs/reading/index.html", downloadUrl:"/assets/skills/skill-reading.md" },
+  { id:"skill-resources", icon:"&#x2B50;", gradient:"linear-gradient(135deg,#EC4899,#F59E0B)", title:"Resource Collection", desc:"Curated learning websites, online courses, and dev tool recommendations.", note:"Install to enable AI to recommend learning resources.", tags:["resources","websites","courses","tools","leetcode"], category:"resources", docLink:"/docs/resources/index.html", downloadUrl:"/assets/skills/skill-resources.md" },
+];
+
+function renderModules(list) {
+  const grid = document.getElementById("skillModules");
+  grid.innerHTML = list.map(m => `
+    <div class="skill-module" id="card-${m.id}">
+      <label class="skill-module__check">
+        <input type="checkbox" id="check-${m.id}" onchange="updateCount()">
+      </label>
+      <div class="skill-module__header">
+        <div class="skill-module__icon" style="background:${m.gradient}">${m.icon}</div>
+        <div>
+          <a href="${m.docLink}" class="skill-module__title">${m.title}</a>
+          <div class="skill-module__id">${m.id}</div>
+        </div>
+      </div>
+      <div class="skill-module__desc">${m.desc}</div>
+      <div class="skill-module__tags">${m.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="skill-module__note"><strong>Note:</strong> ${m.note}</div>
+      <div class="skill-module__actions">
+        <a href="${m.docLink}" class="skill-module__view">View Content &rarr;</a>
+        <div class="skill-module__cmd" title="hermes skill install ${m.id}">hermes skill install ${m.id}</div>
+        <button class="skill-module__copy" onclick="copyToClipboard('hermes skill install ${m.id}', this)">Copy</button>
+        <a href="${m.downloadUrl}" download class="skill-module__download" title="Download ${m.id}.md">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  `).join("");
+  document.getElementById("skillSearchCount").textContent = `${list.length} modules`;
+}
+
+function filterModules() {
+  const q = document.getElementById("skillFilter").value.toLowerCase();
+  const filtered = q ? modules.filter(m =>
+    m.title.toLowerCase().includes(q) || m.tags.some(t => t.toLowerCase().includes(q)) || m.id.toLowerCase().includes(q)
+  ) : modules;
+  renderModules(filtered);
+}
+
+function selectAll() { modules.forEach(m => { const cb = document.getElementById("check-" + m.id); if (cb) cb.checked = true; }); updateCount(); }
+function deselectAll() { modules.forEach(m => { const cb = document.getElementById("check-" + m.id); if (cb) cb.checked = false; }); updateCount(); }
+function updateCount() {
+  const count = modules.filter(m => document.getElementById("check-" + m.id)?.checked).length;
+  document.getElementById("skillSearchCount").textContent = `${count} selected / ${modules.length} modules`;
+}
+
+function downloadSelected() {
+  const selected = modules.filter(m => document.getElementById("check-" + m.id)?.checked);
+  if (selected.length === 0) { showToast("No skills selected"); return; }
+  selected.forEach((m, i) => {
+    setTimeout(() => {
+      const a = document.createElement("a");
+      a.href = m.downloadUrl;
+      a.download = m.id + ".md";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, i * 300);
+  });
+  showToast(`Downloading ${selected.length} skill(s)...`);
+}
+
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = "Copy"; }, 1500);
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+renderModules(modules);
+</script>
+</body>
+</html>
