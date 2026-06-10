@@ -3,10 +3,10 @@ id: skill-docker
 title: Docker Knowledge
 source: https://docs.docker.com/get-started/
 crawled: 2026-06-11
-pages: 8
+pages: 10
 
 # Docker 知识库
-> 来源: https://docs.docker.com/get-started/ | 8 页
+> 来源: https://docs.docker.com/get-started/ | 10 页
 
 ## Get started | Docker Docs
 来源: https://docs.docker.com/get-started/
@@ -472,6 +472,37 @@ in a separate namespace and its access is limited to that namespace.
 
 - Install Docker
 - Get started with Docker
+## Introduction | Docker Docs
+来源: https://docs.docker.com/get-started/introduction/
+# Introduction
+## About this series
+
+In this guide series, you will gain hands-on experience with Docker, starting
+with installing and setting up Docker Desktop on your local machine. You will
+learn how to run your first container, understanding the basics of
+containerization and its benefits. This series guides you through building your
+first Docker image, providing insights into creating efficient and reusable
+images. Finally, you will explore how to publish your image on Docker Hub,
+enabling you to share your work with the broader community and leverage
+Docker's powerful ecosystem for collaborative development and deployment.
+
+## What you'll learn
+
+- Set up Docker Desktop
+- Run your first container
+- Build your first image
+- Publish your image on Docker Hub
+
+## Modules
+
+- Get Docker DesktopThis concept page will teach you download Docker Desktop and install it on Windows, Mac, and Linux
+This concept page will teach you download Docker Desktop and install it on Windows, Mac, and Linux
+- Develop with containersThis concept page will teach you how to develop with containers
+This concept page will teach you how to develop with containers
+- Build and push your first imageThis concept page will teach you how to build and push your first image
+This concept page will teach you how to build and push your first image
+- What's nextExplore step-by-step guides to help you understand core Docker concepts, building images, and running containers.
+Explore step-by-step guides to help you understand core Docker concepts, building images, and running containers.
 ## Get Docker Desktop | Docker Docs
 来源: https://docs.docker.com/get-started/introduction/get-docker-desktop/
 # Get Docker Desktop
@@ -522,3 +553,76 @@ Docker Desktop simplifies container management for developers by streamlining th
 ## What's next?
 
 Now that you have Docker Desktop installed and ran your first container, it's time to start developing with containers.
+## What's next | Docker Docs
+来源: https://docs.docker.com/get-started/introduction/whats-next/
+# What's next
+
+The following sections provide step-by-step guides to help you understand core Docker concepts, building images, and running containers.
+
+## The basics
+
+Get started learning the core concepts of containers, images, registries, and Docker Compose.
+
+### What is a container?
+
+Learn how to run your first container.
+
+### What is an image?
+
+Learn the basics of image layers.
+
+### What is a registry?
+
+Learn about container registries, explore their interoperability, and interact with registries.
+
+### What is Docker Compose?
+
+Gain a better understanding of Docker Compose.
+
+## Building images
+
+Craft optimized container images with Dockerfiles, build cache, and multi-stage builds.
+
+### Understanding image layers
+
+Learn about the layers of container images.
+
+### Writing a Dockerfile
+
+Learn how to create an image using a Dockerfile.
+
+### Build, tag and publish an image
+
+Learn how to build, tag, and publish an image to Docker Hub or any other registry.
+
+### Using the build cache
+
+Learn about the build cache, what changes invalidate the cache, and how to effectively use the build cache.
+
+### Multi-stage builds
+
+Get a better understanding of multi-stage builds and their benefits.
+
+## Running containers
+
+Master essential techniques for exposing ports, overriding defaults, persisting data, sharing files, and managing multi-container applications.
+
+### Publishing ports
+
+Understand the significance of publishing and exposing ports in Docker.
+
+### Overriding container defaults
+
+Learn how to override the container defaults using thedocker runcommand.
+
+### Persisting container data
+
+Learn the significance of data persistence in Docker.
+
+### Sharing local files with containers
+
+Explore the various storage options available in Docker and their common usage.
+
+### Multi-container applications
+
+Learn the significance of multi-container applications and how they're different from single-container applications.
