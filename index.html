@@ -137,5 +137,15 @@
 </footer>
 
 <script src="assets/app.js"></script>
+<!-- 糖糖: 动态更新统计数字 -->
+<script>
+fetch("assets/knowledge-index.json")
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById("stat-skills").textContent = d.total_skills || 0;
+    document.getElementById("stat-knowledge").textContent = d.total_ai_knowledge || 0;
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>
